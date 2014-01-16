@@ -1,25 +1,19 @@
-%function [] = hw1FindEigendigits()
+function [m, V] = hw1FindEigendigits(A)
 % Find eigendigits from digits.mat
-    % load from file
-    load digits.mat;
-    
-    N = 10;
-    %K = 2;
-    
-    % unroll each data, save in matrix X
-    A = [];
-    for i = 1 : N
-        img = trainImages(:,:,1,i);
-        A = [A, img(:)];
-    end
+    % get mean vector
+    m = mean(A,2);
     
     % replace X with X - E(X)
-    A = double(A) - repmat(mean(A,2), 1, size(A,2));
+    A = double(A) - repmat(m, 1, size(A,2));
     
     % get vec and val
     [vec, val] = eig(A' * A);
-    vec = normc(A * vec);
+    vec = A * vec;
     
-    % get new coordinates
-    B = vec' * A;
-%end
+    % sort e-vec and e-val
+    [val, order] = sort(diag(val), 'descend');
+    vec = vec(:, order);
+    
+    % normalize columns
+    V = normc(vec);
+end
