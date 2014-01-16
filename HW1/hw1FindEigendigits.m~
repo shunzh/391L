@@ -4,7 +4,7 @@
     load digits.mat;
     
     N = 10;
-    %K = 2;
+    K = 2;
     
     % unroll each data, save in matrix X
     A = [];
@@ -18,8 +18,8 @@
     
     % get vec and val
     [vec, val] = eig(A' * A);
-    vec = normc(A * vec);
+    vec = A * vec;
     
     % get new coordinates
-    B = vec' * A;
+    
 %end
