@@ -15,12 +15,14 @@ end
 
 % use only first few eigenvecs
 V_ = V(:, 1:K);
+invV_ = inv(V_' * V_) * V_';
 
 % test
 for i = 1 : 20
     I = testImages(:,:,1,i);
     I = double(I(:)) - m;
-    O = V_ * (V_' * I);
+    
+    O = V_ * (invV_ * I);
     
     I = reshape(I, 28, 28);
     O = reshape(O, 28, 28);

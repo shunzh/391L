@@ -1,5 +1,5 @@
 % load from file
-function [accuracy] = hw1Classify(N = 1000, M = 200, K = 2)
+function [accuracy] = hw1Classify(N, M, K)
     load digits.mat;
     
     % unroll each data, save in matrix X
@@ -34,7 +34,7 @@ function [accuracy] = hw1Classify(N = 1000, M = 200, K = 2)
         testEigens = [testEigens, I];
     end
     
-    results = knnclassify(testEigens', trainEigens', trainLabels, K);
+    results = knn(testEigens', trainEigens', trainLabels, K);
 
     accuracy = sum(results == testLabels(1:N)');
 end
