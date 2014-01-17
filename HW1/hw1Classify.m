@@ -2,7 +2,8 @@
 load digits.mat;
 
 N = 1000;
-K = 200;
+M = 200;
+K = 1;
 
 % unroll each data, save in matrix X
 A = [];
@@ -14,7 +15,7 @@ end
 [m, V] = hw1FindEigendigits(A);
 
 % use only first few eigenvecs
-V_ = V(:, 1:K);
+V_ = V(:, 1:M);
 
 % convert training samples into eigenspace
 trainEigens = [];
@@ -26,20 +27,16 @@ for i = 1 : N
     trainEigens = [trainEigens, I];
 end
 
+% test on test set
+testEigens = [];
 for i = 1 : N
     I = testImages(:,:,1,i);
     I = double(I(:)) - m;
     I = V_' * I;
     
-    dist = trainEigens - repmat(I, 1, size(trainEigens, 2));
-    columnSum = sum(dist .^ 2, 1);
-    [val, index] = min(columnSum);
-    
-    if trainLabels(index) == testLabels(i)
-        disp('GOT');
-    else
-        disp('fail');
-    end
-end;
+    testEigens = [testEigens, I];
+end
+
+knnclassify(testEigens', trainEigens', trainLabels, K);
 
 % utilities
