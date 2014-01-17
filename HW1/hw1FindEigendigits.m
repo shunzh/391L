@@ -1,5 +1,4 @@
 function [m, V] = hw1FindEigendigits(A)
-% Find eigendigits from digits.mat
     % get mean vector
     m = mean(A,2);
     
