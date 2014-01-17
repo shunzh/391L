@@ -1,8 +1,8 @@
 % load from file
 load digits.mat;
 
-N = 5000;
-%K = 2;
+N = 1000;
+K = 200;
 
 % unroll each data, save in matrix X
 A = [];
@@ -13,8 +13,8 @@ end
 
 [m, V] = hw1FindEigendigits(A);
 
-% use only first 50 eigenvecs
-V_ = V(:, 1:100);
+% use only first few eigenvecs
+V_ = V(:, 1:K);
 
 % test
 for i = 1 : 20
