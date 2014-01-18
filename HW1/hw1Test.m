@@ -17,7 +17,7 @@ end
 V_ = V(:, 1:K);
 invV_ = inv(V_' * V_) * V_';
 
-% test
+% try reconstruct original figures
 for i = 1 : 20
     I = testImages(:,:,1,i);
     I = double(I(:)) - m;

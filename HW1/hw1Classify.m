@@ -1,5 +1,5 @@
-% load from file
 function [accuracy] = hw1Classify(inN, outN, M, K)
+	% load from file
     load digits.mat;
     
     % unroll each data, save in matrix X
