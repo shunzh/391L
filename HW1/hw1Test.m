@@ -1,7 +1,7 @@
 % load from file
 load digits.mat;
 
-N = 1000;
+N = 2000;
 K = 200;
 
 % unroll each data, save in matrix X
@@ -28,5 +28,5 @@ for i = 1 : 20
     O = reshape(O, 28, 28);
     
     imwrite(I, ['testIn', int2str(i), '.png']);
-    imwrite(O, ['testOut', int2str(i), '.png']);
+    imwrite(O, ['testOut', int2str(K), '_', int2str(i), '.png']);
 end
