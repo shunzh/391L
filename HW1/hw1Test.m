@@ -27,6 +27,6 @@ for i = 1 : 20
     I = reshape(I, 28, 28);
     O = reshape(O, 28, 28);
     
-    imwrite(I, ['testIn', int2str(i), '.png']);
-    imwrite(O, ['testOut', int2str(K), '_', int2str(i), '.png']);
+    %imwrite(I, ['testIn', int2str(i), '.png']);
+    %imwrite(O, ['testOut', int2str(K), '_', int2str(i), '.png']);
 end
