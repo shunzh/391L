@@ -1,8 +1,8 @@
 % load from file
 load digits.mat;
 
-N = 2000;
-K = 200;
+N = 5000;
+M = 3;
 
 % unroll each data, save in matrix X
 A = [];
@@ -14,19 +14,34 @@ end
 [m, V] = hw1FindEigendigits(A);
 
 % use only first few eigenvecs
-V_ = V(:, 1:K);
+V_ = V(:, 1:M);
 invV_ = inv(V_' * V_) * V_';
 
 % try reconstruct original figures
-for i = 1 : 20
-    I = testImages(:,:,1,i);
+map = [];
+for i = 1 : 1000
+	% changed to training set!!
+    I = trainImages(:,:,1,i);
     I = double(I(:)) - m;
     
-    O = V_ * (invV_ * I);
+    W = invV_ * I;
+    %O = V_ * W;
+
+    map = [map; double(trainLabels(1, i)), W'];
     
-    I = reshape(I, 28, 28);
-    O = reshape(O, 28, 28);
-    
+    %I = reshape(I, 28, 28);
+    %O = reshape(O, 28, 28);
     %imwrite(I, ['testIn', int2str(i), '.png']);
     %imwrite(O, ['testOut', int2str(K), '_', int2str(i), '.png']);
+end
+
+for i = 0 : 9
+	mapi = map(map(:,1) == i, :);
+	if i > 5
+	    scatter(mapi(:, 2), mapi(:, 3), 'x');
+	else
+	    scatter(mapi(:, 2), mapi(:, 3));
+	end
+
+	hold on;
 end
