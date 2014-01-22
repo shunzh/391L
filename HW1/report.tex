@@ -16,9 +16,33 @@
 
 \section{Introduction}
 
-In this report, I apply principal components analysis on digits
+In this report, I applied principal components analysis on digits
 classification problem. 60000 training samples and 10000 testing
 samples are provided.
+
+Eigenvectors on first 2000 training samples.
+
+\begin{figure}[b]
+\centering
+\includegraphics[]{eigen.png}
+\caption{First 20 eigen-vectors, aligned from left to right and top to
+down. Each value is multiplied by 10, i.e., each vector has norm of
+100, instead of 1. They become dark after normalization.}
+\label{fig:eigen}
+\end{figure}
+
+Reconstructed digits using first 100 and 200 eigenvectors
+correspondingly. First 2000 training samples are used. 
+
+\begin{figure}[b]
+\centering
+\includegraphics[]{test.png}
+\caption{Reconstruction of digits. From left to right on each line,
+there are original digits, digits constructed by first 100
+eigenvectors, digits constructed by first 200 eigenvectors, digits
+constructed by first 600 eigenvectors. }
+\label{fig:test}
+\end{figure}
 
 \section{Experiments}
 
