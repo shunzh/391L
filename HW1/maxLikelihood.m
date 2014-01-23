@@ -1,5 +1,5 @@
 % find the most likely class by assuming Gaussien distribution
-function [classes] = maxLikelihood(testSet, trainSet, trainLabels, labelSet, k)
+function [classes] = maxLikelihood(testSet, trainSet, trainLabels, labelSet)
 	classes = [];
 
     means = [];

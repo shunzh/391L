@@ -15,7 +15,7 @@ end
 
 % use only first few eigenvecs
 V_ = V(:, 1:M);
-invV_ = inv(V_' * V_) * V_';
+invV_ = V_';
 
 % try reconstruct original figures
 map = [];
@@ -38,9 +38,9 @@ end
 for i = 0 : 9
 	mapi = map(map(:,1) == i, :);
 	if i > 5
-	    scatter(mapi(:, 2), mapi(:, 3), 'x');
+	    scatter3(mapi(:, 2), mapi(:, 3), mapi(:, 4), 'x');
 	else
-	    scatter(mapi(:, 2), mapi(:, 3));
+	    scatter3(mapi(:, 2), mapi(:, 3), mapi(:, 4));
 	end
 
 	hold on;
