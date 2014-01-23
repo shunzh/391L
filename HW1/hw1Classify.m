@@ -1,4 +1,4 @@
-function [accuracy] = hw1Classify(inN, outN, M, K)
+function [accuracy] = hw1Classify(inN, outFrom, outTo, M, K)
 	% load from file
     load digits.mat;
     
@@ -27,7 +27,7 @@ function [accuracy] = hw1Classify(inN, outN, M, K)
     
     % test on test set
     testEigens = [];
-    for i = 1 : outN
+    for i = outFrom : outTo
         I = testImages(:,:,1,i);
         I = double(I(:)) - m;
         I = invV_ * I;
@@ -35,7 +35,8 @@ function [accuracy] = hw1Classify(inN, outN, M, K)
         testEigens = [testEigens, I];
     end
     
-    results = knn(testEigens', trainEigens', trainLabels, K);
+    %results = knn(testEigens', trainEigens', trainLabels, K);
+    results = maxLikelihood(testEigens', trainEigens', trainLabels(1:inN), 0:9, K);
 
-    accuracy = sum(results == testLabels(1:outN)') / outN;
+    accuracy = sum(results == testLabels(outFrom :outTo)') / (outTo - outFrom);
 end
