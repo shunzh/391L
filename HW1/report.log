@@ -1,21 +1,15 @@
-This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2012.10.5)  21 JAN 2014 21:37
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.8)  23 JAN 2014 00:15
 entering extended mode
  %&-line parsing enabled.
 **report.tex
 (./report.tex
-LaTeX2e <2005/12/01>
+LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
-abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
-h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
-greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
-tin, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, r
-omanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turki
-sh, ukenglish, ukrainian, uppersorbian, welsh, loaded.
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2005/09/16 v1.4f Standard LaTeX document class
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@section=\count80
@@ -29,45 +23,45 @@ File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/latexsym.sty
+(/usr/share/texmf-texlive/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2009/02/02 8.3 (PWD, AO)
+(/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
+Package: natbib 2009/07/16 8.31 (PWD, AO)
 \bibhang=\skip43
 \bibsep=\skip44
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count87
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/keyval.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/trig.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/v/filer4b/software/texlive/2008/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 90.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gread@gobject=\count88
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
-) (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/subfigure/subfigure.st
-y
+)
+(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.sty
 Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip45
 \subfigcapskip=\skip46
@@ -79,13 +73,15 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \c@lofdepth=\count90
 \c@subtable=\count91
 \c@lotdepth=\count92
+
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip49
 \subfig@bottom=\skip50
-) (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/listings/listings.sty
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
 \lst@mode=\count93
 \lst@gtempboxa=\box26
 \lst@token=\toks15
@@ -99,21 +95,22 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \lst@lineno=\count98
 \lst@maxwidth=\dimen110
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/listings/lstmisc.sty
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 \c@lstnumber=\count99
 \lst@skipnumbers=\count100
 \lst@framebox=\box27
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/listings/listings.cfg
+(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
 File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/algorithms/algorithm.sty
-Package: algorithm 
-Document Style `algorithm' - floating environment
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/float/float.sty
+(/usr/share/texmf-texlive/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texmf-texlive/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count101
 \float@exts=\toks16
@@ -121,18 +118,16 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks17
 \@floatcapt=\box29
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/ifthen.sty
+(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks18
 \c@algorithm=\count102
 )
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/algorithmicx/algpseudoco
-de.sty
+(/usr/share/texmf-texlive/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/algorithmicx/algorithmic
-x.sty
+(/usr/share/texmf-texlive/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
@@ -163,8 +158,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
-
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/context/base/supp-pdf.tex
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
 \scratchdimen=\dimen111
@@ -185,42 +179,53 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 15.
 LaTeX Font Info:    Try loading font information for U+lasy on input line 15.
- (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/ulasy.fd
+ (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 38.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 38.
+
 <eigen.png, id=1, 140.525pt x 112.42pt>
 File: eigen.png Graphic file (type png)
- <use eigen.png>
-<test.png, id=2, 112.42pt x 112.42pt>
+ <use eigen.png> [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] <test.png, id=14, 112.42pt
+ x 112.42pt>
 File: test.png Graphic file (type png)
- <use test.png>
-<diffDataSet.png, id=3, 449.68pt x 337.26pt>
+
+<use test.png> [2 <./eigen.png (PNG copy)> <./test.png (PNG copy)>]
+<diffDataSet.png, id=19, 449.68pt x 337.26pt>
 File: diffDataSet.png Graphic file (type png)
  <use diffDataSet.png>
-<diffEVector.png, id=4, 449.68pt x 337.26pt>
+<diffEVector.png, id=20, 449.68pt x 337.26pt>
 File: diffEVector.png Graphic file (type png)
- <use diffEVector.png> [1
-
-{/v/filer4b/software/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
- <./eigen.png (PNG copy)>] [2 <./test.png (PNG copy)> <./diffDataSet.png (PNG c
-opy)>]
-[3 <./diffEVector.png (PNG copy)>] (./report.aux) ) 
+ <use diffEVector.png> [3 <./diffDataSet.png (PNG copy)> <./diffEVector.png (PN
+G copy)>]
+<twod_digit.png, id=24, 517.935pt x 425.59pt>
+File: twod_digit.png Graphic file (type png)
+ <use twod_digit.png> [4 <./twod_digit.png (PNG copy)>] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3214 strings out of 493876
- 44936 string characters out of 1147346
- 99565 words of memory out of 3000000
- 6485 multiletter control sequences out of 10000+50000
- 7598 words of font info for 29 fonts, out of 3000000 for 5000
- 714 hyphenation exceptions out of 8191
- 27i,6n,32p,335b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
-</v/filer4b/software/texlive
-/2008/texmf-dist/fonts/type1/bluesky/cm/cmbx12.pfb></v/filer4b/software/texlive
-/2008/texmf-dist/fonts/type1/bluesky/cm/cmr10.pfb></v/filer4b/software/texlive/
-2008/texmf-dist/fonts/type1/bluesky/cm/cmr12.pfb></v/filer4b/software/texlive/2
-008/texmf-dist/fonts/type1/bluesky/cm/cmr17.pfb>
-Output written on report.pdf (3 pages, 46419 bytes).
+ 3237 strings out of 495061
+ 44216 string characters out of 1182621
+ 101802 words of memory out of 3000000
+ 6407 multiletter control sequences out of 15000+50000
+ 7916 words of font info for 32 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 27i,6n,32p,360b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/s
+hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on report.pdf (4 pages, 146578 bytes).
 PDF statistics:
- 32 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 131072)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
