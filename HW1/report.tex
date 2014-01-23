@@ -68,15 +68,16 @@ more about mean feautres of the digits.
 If we call the basis we use as $B$ and the eigenspace as $E$. $V$
 is a linear transformation from $E$ to $B$, usually represented as
 $P_{BE}$ in the linear algebra literature. We also need $P_{EB}$,
-which is defined as the inverse of $P_{BE}$. If $P_{BE}$ is
-orthogonal, then $P_{EB} = P_{BE}^T$.  However, we don't have such
-assumption. I used the left psudo-inverse of $P_{BE}$ to represent
-$P_{EB}$.
-$$P_{EB} = (P_{BE}^T P_{BE})^{-1} P_{BE}^T$$
+which is defined as the inverse of $P_{BE}$. We know that $P_{BE}$ is
+orthogonal, because it's the covariance matrix of a symmetrix matrix.
+Therefore, $P_{EB} = P_{BE}^T$.
+
 Now, we can transform any vector in $B$ or $E$ basis to the other in
 the following way.
-$$[v]_B = P_{BE} [v]_E$$
-$$[v]_E = P_{EB} [v]_B$$
+$$[v]_E = P_{EB} [v]_B$$, which maps a vector from original space to
+the eigenspace.
+$$[v]_B = P_{BE} [v]_E$$, which maps a vector from the eigenspace to
+the original space.
 
 \begin{figure}
 \centering
@@ -88,7 +89,7 @@ constructed by first 600 eigenvectors. }
 \label{fig:test}
 \end{figure}
 
-We can check how digits are "reconstructed" after maping from $B$ to
+We can check how digits are ``reconstructed'' after maping from $B$ to
 $E$ and then back to $B$. Figure~\ref{fig:test} shows the
 reconstruction result, using 100, 200, and 600 eigenvectors
 respectively. The more eigenvectors used, the more close it
@@ -161,8 +162,11 @@ looking of figures.
 In this assignment, I implemented principal components analysis to
 classify digits in the eigenspace of the covariance matrix of the
 data. This reduces the dimension of the data, with the least
-information loss. This also works for compression purpose. However, I
-believe that $E$ could be more carefully selected, which makes data in
+information loss. Therefore, this can be generally used for
+compressing data into lower dimension.
+
+However, by observing the result in Figre~\ref{fig:twod}, I believe
+that $E$ could be more carefully selected, which makes data in
 different classes more separable for classification purpose.
 
 \end{document}

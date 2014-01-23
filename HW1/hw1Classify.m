@@ -13,7 +13,7 @@ function [accuracy] = hw1Classify(inN, outFrom, outTo, M, K)
     
     % use only first few eigenvecs
     V_ = V(:, 1:M);
-    invV_ = inv(V_' * V_) * V_';
+    invV_ = V_';
     
     % convert training samples into eigenspace
     trainEigens = [];
@@ -35,8 +35,8 @@ function [accuracy] = hw1Classify(inN, outFrom, outTo, M, K)
         testEigens = [testEigens, I];
     end
     
-    %results = knn(testEigens', trainEigens', trainLabels, K);
-    results = maxLikelihood(testEigens', trainEigens', trainLabels(1:inN), 0:9, K);
+    results = knn(testEigens', trainEigens', trainLabels, K);
+    %results = maxLikelihood(testEigens', trainEigens', trainLabels(1:inN), 0:9, K);
 
     accuracy = sum(results == testLabels(outFrom :outTo)') / (outTo - outFrom);
 end
