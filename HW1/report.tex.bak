@@ -30,7 +30,7 @@ However, figures of digits should be easy to describe - they need far
 less than 728 dimensions. The motivation is that we want use a basis
 such that coordinates of the figures vary the most. This would be the
 most expressive way in a limited dimension. We could look into the
-covariance matrix of the data, and use its eigenvectors with maximum
+covarance matrix of the data, and use its eigenvectors with maximum
 eigenvalues.
 
 \section{Algorithm}
@@ -38,7 +38,7 @@ eigenvalues.
 Let a figure be in size of $n \times n$. Let $X$ be the matrix such
 that each column of it is a datum, represented as an unrolled vector
 of size of $n^2 \times 1$. Let there be $K$ samples. Then the
-dimension of $X$ is $n^2 \times K$. The covariance of $X$ is defined
+dimension of $X$ is $n^2 \times K$. The covarance of $X$ is defined
 as,
 $$Cov(X) = \mathrm{E}((X - \mathrm{E}(X))(X - \mathrm{E}(X))^T)$$
 Let $A = X - \mathrm{E}(X)$. As $A$ is in $n^2 \times n^2$ dimension,
@@ -58,18 +58,18 @@ after normalization. So in this figure, each value is multiplied by
 \label{fig:eigen}
 \end{figure}
 
-Let $V$ be the set of the eigenvectors of $AA^T$, sorted descending
+Let $V$ be the set of the eigenvectors of $AA^T$, sorted descendingly
 according to the eigenvalues. It's actually a set of basis we want to
 use. The first 20 eigenvectors are shown in Figure~\ref{fig:eigen}.
 Intuitively, eigenvectors with smaller eigenvalues care more about
 details of the digits, while the ones with higher eigenvalues care
-more about mean features of the digits.
+more about mean feautres of the digits.
 
 If we call the basis we use as $B$ and the eigenspace as $E$. $V$
 is a linear transformation from $E$ to $B$, usually represented as
 $P_{BE}$ in the linear algebra literature. We also need $P_{EB}$,
 which is defined as the inverse of $P_{BE}$. We know that $P_{BE}$ is
-orthogonal, because it's the covariance matrix of a symmetric matrix.
+orthogonal, because it's the covariance matrix of a symmetrix matrix.
 Therefore, $P_{EB} = P_{BE}^T$.
 
 Now, we can transform any vector in $B$ or $E$ basis to the other in
@@ -89,14 +89,14 @@ constructed by first 600 eigenvectors. }
 \label{fig:test}
 \end{figure}
 
-We can check how digits are ``reconstructed'' after mapping from $B$ to
+We can check how digits are ``reconstructed'' after maping from $B$ to
 $E$ and then back to $B$. Figure~\ref{fig:test} shows the
 reconstruction result, using 100, 200, and 600 eigenvectors
 respectively. The more eigenvectors used, the more close it
-reconstructed, and, as a cost, the higher the dimension of $E$ is.
+reconstructed, and, as a cost, the heigher the dimension of $E$ is.
 
 For classification, I transform the training set from $B$ to $E$ to
-reduce its dimension. For a test sample, say $u$, I also transformed
+reduce its dimension. For a test sample, say $u$, I also transfermed
 it to $E$ space, as $[v]_E$. I compute the distance of this to every
 training sample. The k training samples with smallest distance are
 selected. They majority of their labels is considered as the label of
@@ -113,7 +113,7 @@ different number of eigenvectors.
 \centering
 \includegraphics[width=0.5\columnwidth]{diffDataSet.png}
 \caption{Comparison on using different number of training samples.
-Testing on first 1000 testing set. Using first 200 eigenvectors. K
+Testing on first 1000 testing set. Using first 200 eigen-vectors. K
 for K-nearest-neighbors is 1.}
 \label{fig:dataset}
 \end{figure}
@@ -188,7 +188,7 @@ data. This reduces the dimension of the data, with the least
 information loss. Therefore, this can be generally used for
 compressing data into lower dimension.
 
-However, by observing the result in Figure~\ref{fig:twod}, I believe
+However, by observing the result in Figre~\ref{fig:twod}, I believe
 that $E$ could be more carefully selected, which makes data in
 different classes more separable for classification purpose.
 

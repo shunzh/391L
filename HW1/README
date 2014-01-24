@@ -1,0 +1,21 @@
+Name: Shun Zhang
+EID: sz4554
+
+CS 391L
+
+HW 1
+=======================================
+hw1Classify.m
+Classify digits.mat, will call hw1FindEigendigits.
+
+hw1FindEigendigits.m
+Exactly as stated in the homework instruction.
+
+knn.m
+Implementation of K-Nearest-Neighbors.
+
+maxLikelihood.m
+Implementation of maximum likelihood estimation.
+
+report.pdf
+Report file.
