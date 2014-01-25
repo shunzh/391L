@@ -2,13 +2,13 @@
 function [classes] = maxLikelihood(testSet, trainSet, trainLabels, labelSet)
 	classes = [];
 
-    means = [];
+	means = [];
 	convs = [];
 
 	for i = 1:size(labelSet)
 		imgs = trainSet((trainLabels == i), :);
 		means(:, i) = mean(imgs, 1)';
-		covs(:, :, i) = cov(imgs); % each ROW taken as a datum for cov
+		covs(:, :, i) = cov(imgs);
 	end
 
 	for i = 1:size(testSet, 1)
