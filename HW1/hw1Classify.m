@@ -40,8 +40,8 @@ function [accuracy] = hw1Classify(inN, outFrom, outTo, M, K)
     end
     
 	'knn'
-    results = knn(testEigens', trainEigens', trainLabels, K);
-    %results = maxLikelihood(testEigens', trainEigens', trainLabels(1:inN), 0:9);
+    %results = knn(testEigens', trainEigens', trainLabels(1:inN), K);
+    results = maxLikelihood(testEigens', trainEigens', trainLabels(1:inN), (0:9)');
 
     accuracy = sum(results == testLabels(outFrom :outTo)') / (outTo - outFrom + 1);
 end
