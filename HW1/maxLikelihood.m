@@ -6,18 +6,21 @@ function [classes] = maxLikelihood(testSet, trainSet, trainLabels, labelSet)
 	convs = [];
 
 	for i = 1:size(labelSet)
-		imgs = trainSet((trainLabels == i), :);
+		% number from 0 to 9
+		imgs = trainSet((trainLabels == i - 1), :);
 		means(:, i) = mean(imgs, 1)';
-		covs(:, :, i) = cov(imgs); % each ROW taken as a datum for cov
+		covs(:, :, i) = cov(imgs);
 	end
 
-	for i = 1:size(testSet, 1)
-		testData = testSet(i, :);
+	covs
 
+	for testData = testSet(:, :)'
 		probs = [];
 		for l = 1:size(labelSet)
-			probs = [probs, mvnpdf(testData', means(:, l), covs(:, :, l))];
+			probs = [probs, mvnpdf(testData, means(:, l), covs(:, :, l))];
 		end
+
+		probs
 
 		[maxv, maxi] = max(probs);
 		classes = [classes; labelSet(maxi)];
