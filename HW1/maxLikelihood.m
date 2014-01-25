@@ -2,7 +2,7 @@
 function [classes] = maxLikelihood(testSet, trainSet, trainLabels, labelSet)
 	classes = [];
 
-    means = [];
+	means = [];
 	convs = [];
 
 	for i = 1:size(labelSet)
