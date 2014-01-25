@@ -95,18 +95,25 @@ reconstruction result, using 100, 200, and 600 eigenvectors
 respectively. The more eigenvectors used, the more close it
 reconstructed, and, as a cost, the higher the dimension of $E$ is.
 
-For classification, I transform the training set from $B$ to $E$ to
+In the following part of this section, I describe two algorithms I
+used for classifiction
+
+\subsection{K-Nearest-Neighbors}
+
+This is the algorithm that making the neighbors of a given data point
+to determine its label. I transform the training set from $B$ to $E$ to
 reduce its dimension. For a test sample, say $u$, I also transformed
 it to $E$ space, as $[v]_E$. I compute the distance of this to every
 training sample. The k training samples with smallest distance are
 selected. They majority of their labels is considered as the label of
-this test datum. This is the idea of K-Nearest-Neighbors algorithm.
+this test datum.
+
+\subsection{Maximum Likelihood Estimation}
+
+Different from K-Nearest-Neighbors, this assumes Gaussian-like
+distribution of each class.
 
 \section{Experiments}
-
-I used Nearest-Neighbor for classification, in which I compare the
-learning performance using different number of training samples, and
-different number of eigenvectors.
 
 %hw1Classify(n, 1000, 200, 1)
 \begin{figure}
@@ -119,8 +126,9 @@ for K-nearest-neighbors is 1.}
 \end{figure}
 
 Figure~\ref{fig:dataset} shows result of the learning performance on
-different size of data. It's not surprising that the more training
-data provided, the better accuracy can be achieved.
+different size of data, using different type of classification
+algorithms. It's not surprising that the more training data provided,
+the better accuracy can be achieved.
 
 \begin{figure}
 \centering
@@ -141,12 +149,6 @@ dimensional space.  Figure~\ref{fig:evec} shows that 50-100
 eigenvectors have the best performance, when the training set is
 fixed.
 
-I also tried to classify using its maximum likelihood class. However,
-the performance is much worse than using Nearest-Neighbor. I assumed
-that the distribution of data in different classes is not disjunct to
-each other. So we cannot assume data in each class can have
-Gaussian-like distributed.
-
 \begin{figure}
 \centering
 \includegraphics[width=0.5\columnwidth]{twod_digit.png}
@@ -163,8 +165,9 @@ first 5000 training samples. Testing on first 1000 testing samples.}
 \label{fig:threed}
 \end{figure}
 
-To help to verify the claim above, I draw the coordinates of different
-set of figures in $E$. Figure~\ref{fig:twod} shows the coordinates of
+Another interesting thing to check is to show the distribution of data
+in the eigenspace. I draw the coordinates of different
+set of digits in $E$. Figure~\ref{fig:twod} shows the coordinates of
 data in $E$ basis, but only on first two eigenvectors.
 Figure~\ref{fig:threed} shows them on first three eigenvectors. They
 spread the most on the first basis, which is the x axis, and less, but

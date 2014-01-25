@@ -14,6 +14,7 @@ function [classes] = knn(testSet, trainSet, trainLabels, k)
 		nrstLabels = trainLabels(order);
 		nrstLabels = nrstLabels(1:k);
 
+		% choose the most frequent one
 		ret = mode(double(nrstLabels));
 
 		classes = [classes; ret];

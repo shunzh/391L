@@ -7,7 +7,7 @@ function [classes] = maxLikelihood(testSet, trainSet, trainLabels, labelSet)
 
 	for i = 1:size(labelSet)
 		% number from 0 to 9
-		imgs = trainSet((trainLabels == i - 1), :);
+		imgs = trainSet((trainLabels == (i - 1)), :);
 		means(:, i) = mean(imgs, 1)';
 		covs(:, :, i) = cov(imgs);
 	end
@@ -19,8 +19,6 @@ function [classes] = maxLikelihood(testSet, trainSet, trainLabels, labelSet)
 		for l = 1:size(labelSet)
 			probs = [probs, mvnpdf(testData, means(:, l), covs(:, :, l))];
 		end
-
-		probs
 
 		[maxv, maxi] = max(probs);
 		classes = [classes; labelSet(maxi)];

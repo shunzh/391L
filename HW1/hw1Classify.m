@@ -3,21 +3,19 @@ function [accuracy] = hw1Classify(inN, outFrom, outTo, M, K)
     load digits.mat;
     
     % unroll each data, save in matrix X
-	'unroll data'
     A = [];
     for i = 1 : inN
         img = trainImages(:,:,1,i);
         A = [A, img(:)];
     end
     
-	'find eigen digits'
+	% find eigen digits
     [m, V] = hw1FindEigendigits(A);
     
     % use only first few eigenvecs
     V_ = V(:, 1:M);
     invV_ = V_';
     
-	'convert sample to eigen'
     % convert training samples into eigenspace
     trainEigens = [];
     for i = 1 : inN
@@ -28,7 +26,6 @@ function [accuracy] = hw1Classify(inN, outFrom, outTo, M, K)
         trainEigens = [trainEigens, I];
     end
     
-	'convert test to eigen'
     % test on test set
     testEigens = [];
     for i = outFrom : outTo
@@ -39,9 +36,8 @@ function [accuracy] = hw1Classify(inN, outFrom, outTo, M, K)
         testEigens = [testEigens, I];
     end
     
-	'knn'
-    %results = knn(testEigens', trainEigens', trainLabels(1:inN), K);
-    results = maxLikelihood(testEigens', trainEigens', trainLabels(1:inN), (0:9)');
+    results = knn(testEigens', trainEigens', trainLabels(1:inN), K);
+    %results = maxLikelihood(testEigens', trainEigens', trainLabels(1:inN), (0:9)');
 
     accuracy = sum(results == testLabels(outFrom :outTo)') / (outTo - outFrom + 1);
 end
