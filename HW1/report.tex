@@ -52,7 +52,7 @@ to get eigenvectors of $AA^T$.
 \centering
 \includegraphics[]{eigen.png}
 \caption{First 20 eigenvectors, using first 2000 training samples.
-They are aligned from left to right and top to down. They become dark
+They are aligned from left to right and then top to down. They become dark
 after normalization. So in this figure, each value is multiplied by
 10, i.e., each vector has norm of 100, instead of 1. }
 \label{fig:eigen}
@@ -63,7 +63,7 @@ according to the eigenvalues. It's actually a set of basis we want to
 use. The first 20 eigenvectors are shown in Figure~\ref{fig:eigen}.
 Intuitively, eigenvectors with smaller eigenvalues care more about
 details of the digits, while the ones with higher eigenvalues care
-more about mean features of the digits.
+more about predominant features of the digits.
 
 If we call the basis we use as $B$ and the eigenspace as $E$. $V$
 is a linear transformation from $E$ to $B$, usually represented as
@@ -96,7 +96,7 @@ respectively. The more eigenvectors used, the more close it
 reconstructed, and, as a cost, the higher the dimension of $E$ is.
 
 In the following part of this section, I describe two algorithms I
-used for classifiction
+used for classification.
 
 \subsection{K-Nearest-Neighbors}
 
@@ -111,36 +111,60 @@ this test datum.
 \subsection{Maximum Likelihood Estimation}
 
 Different from K-Nearest-Neighbors, this assumes Gaussian-like
-distribution of each class.
+distribution of each class. Mean and variance for data in each class
+are computed. Then we can compute the posterior probability of a datum
+given each class, then pick the class with largest probability to own
+this datum.
 
 \section{Experiments}
 
 %hw1Classify(n, 1000, 200, 1)
 \begin{figure}
 \centering
-\includegraphics[width=0.5\columnwidth]{diffDataSet.png}
-\caption{Comparison on using different number of training samples.
-Testing on first 1000 testing set. Using first 200 eigenvectors. K
-for K-nearest-neighbors is 1.}
+\includegraphics[width=0.55\columnwidth]{diffDataSet.png}
+\caption{Comparison on using different number of training samples on
+different types of classification algorithms, indicated in the legends.
+Testing on first 1000 testing set. Using first 50 eigenvectors.}
 \label{fig:dataset}
 \end{figure}
 
 Figure~\ref{fig:dataset} shows result of the learning performance on
 different size of data, using different type of classification
-algorithms. It's not surprising that the more training data provided,
-the better accuracy can be achieved.
+algorithms. Overall, it's not surprising that the more training data
+provided, the better accuracy can be achieved.
+
+The maximum likelihood estimation has the best performance. It takes
+the mean and variance of all the classes into consideration. In
+contrast, KNN would have difficulty in identifying data on the
+"boundary" between classes, or when two classes are not fully
+disjunct. In the latter case, mean and variance of two classes can
+describe the distribution well, while KNN, which only looks into the
+local points near the test datum, would be less likely to identify its
+class.
+
+Apart from this, the distribution pattern of a class can also
+harm the performance of KNN\@. Suppose a class has a narrow but long
+distribution, then KNN would count the surrounding data from other
+classes. Because of cases like this, we can observe that $K=30$ has a
+worse performance than $K=5$.
+
+\hfill
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\columnwidth]{diffEVector.png}
+\includegraphics[width=0.55\columnwidth]{diffEVector.png}
 \caption{Comparison on using different number of eigenvectors.
 Testing on first 1000 testing set. Using first 1500 and 3000 training
-samples for each line.  K for K-nearest-neighbors is 1.}
+samples for each line.  K for K-Nearest-Neighbors is 1.}
 \label{fig:evec}
 \end{figure}
 
 Figure~\ref{fig:evec} shows the learning performance on different set
-of eigenvectors. Here is some interesting observation. When too few
+of eigenvectors. I used Nearest-Neighbor algorithm ($K = 1$ for KNN),
+as this is the most naive way to do classification, and what I want to
+compare in this experiment is the number of eigenvectors.
+
+Here is some interesting observation. When too few
 eigenvectors are used, which means $E$ has very small dimensions, the
 accuracy is low. This is because vectors in $E$ are not expressive
 enough. However, when there are too many eigenvectors provided, the
@@ -149,9 +173,11 @@ dimensional space.  Figure~\ref{fig:evec} shows that 50-100
 eigenvectors have the best performance, when the training set is
 fixed.
 
+\hfill
+
 \begin{figure}
 \centering
-\includegraphics[width=0.5\columnwidth]{twod_digit.png}
+\includegraphics[width=0.55\columnwidth]{twod_digit.png}
 \caption{Data coordinates on first two basis in $E$ space.  Using
 first 5000 training samples. Testing on first 1000 testing samples.}
 \label{fig:twod}
@@ -159,7 +185,7 @@ first 5000 training samples. Testing on first 1000 testing samples.}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\columnwidth]{threed_digit.png}
+\includegraphics[width=0.55\columnwidth]{threed_digit.png}
 \caption{Data coordinates on first three basis in $E$ space.  Using
 first 5000 training samples. Testing on first 1000 testing samples.}
 \label{fig:threed}
@@ -169,7 +195,9 @@ Another interesting thing to check is to show the distribution of data
 in the eigenspace. I draw the coordinates of different
 set of digits in $E$. Figure~\ref{fig:twod} shows the coordinates of
 data in $E$ basis, but only on first two eigenvectors.
-Figure~\ref{fig:threed} shows them on first three eigenvectors. They
+Figure~\ref{fig:threed} shows them on first three eigenvectors (it's
+worth looking at it, even it's hard to read data from a 3 dimensional
+space). They
 spread the most on the first basis, which is the x axis, and less, but
 still much, on the second basis, which is the y axis, and even less on
 the z axis.
@@ -190,6 +218,11 @@ classify digits in the eigenspace of the covariance matrix of the
 data. This reduces the dimension of the data, with the least
 information loss. Therefore, this can be generally used for
 compressing data into lower dimension.
+
+I found that maximum likelihood estimation has the best performance on
+classification on digits. This is because it considers the
+distribution of each classes, and the data from different classes have
+Gaussian distributions.
 
 However, by observing the result in Figure~\ref{fig:twod}, I believe
 that $E$ could be more carefully selected, which makes data in
