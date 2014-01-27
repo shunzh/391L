@@ -111,10 +111,11 @@ this test datum.
 \subsection{Maximum Likelihood Estimation}
 
 Different from K-Nearest-Neighbors, this assumes Gaussian-like
-distribution of each class. Mean and variance for data in each class
+distribution of each class. Assume the prior distribution for each class
+is uniform. Mean and variance for data in each class
 are computed. Then we can compute the posterior probability of a datum
-given each class, then pick the class with largest probability to own
-this datum.
+given each class. We determine the label by picking the class with
+largest probability to own this datum.
 
 \section{Experiments}
 
