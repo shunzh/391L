@@ -2,10 +2,9 @@
 \usepackage{latexsym}
 \usepackage{natbib}
 \usepackage{graphicx}
-\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{listings}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
 
 \title{Homework 2: Independent Component Analysis}
 \author{Name: Shun Zhang\\
@@ -16,5 +15,33 @@ EID: \texttt{sz4554}}
 \begin{document}
 \maketitle
 
+\section{Independent Component Analysis}
+
+In this report, I applied Independent Component Analysis on Blind Source
+Separation problem.
+
+\section{Experiment}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.3\textwidth}
+	\includegraphics[width=\textwidth]{rep2.png}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.3\textwidth}
+	\includegraphics[width=\textwidth]{rep3.png}
+\end{subfigure}
+
+\caption{The bottom 3 lines are original signals from
+\texttt{icaTest.mat}. The top 3 lines are reconstructed signals with
+$\eta = 0.01$ and 1000000 iterations.}
+\label{fig:rep}
+\end{figure}
+
 Frobenius Norm.
+
+\section{Discussion}
+
+\section{Conclusion}
+
 \end{document}
