@@ -1,10 +1,11 @@
 % input X: m x t
-function [W] = ica(X, n, alpha, maxRun)
+function [W, diff] = ica(X, n, alpha, maxRun)
 	[m t] = size(X);
 
 	% W: n x m, initial guess
 	W = rand(n, m) * .1;
 	counter = 0;
+	diff = [];
 
 	while counter < maxRun
 		% Y: n x t, estimate at this step
@@ -17,12 +18,13 @@ function [W] = ica(X, n, alpha, maxRun)
 		end
 
 		% one step gradient descent
-		W = W + alpha * (eye(n) + (ones(n, t) - 2 * Z) * Y') * W;
+		detW = alpha * (eye(n) + (ones(n, t) - 2 * Z) * Y') * W;
+		W = W + detW;
 
 		counter = counter + 1;
 
-		if mod(counter, 5000) == 0
-			counter / maxRun
+		if mod(counter, 1000) == 0
+			diff = [diff; norm(detW)]
 		end
 	end
 end
