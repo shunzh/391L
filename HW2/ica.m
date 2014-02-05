@@ -24,7 +24,8 @@ function [W, diff] = ica(X, n, alpha, maxRun)
 		counter = counter + 1;
 
 		if mod(counter, 1000) == 0
-			diff = [diff; norm(detW)]
+			diff = [diff; norm(detW)];
+			counter / maxRun
 		end
 	end
 end
