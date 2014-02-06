@@ -1,0 +1,75 @@
+/lusr/bin/matlab: 1: /v/filer4b/software/matlab-2011a/bin/util/oscheck.sh: /lib64/libc.so.6: not found
+
+------------------------------------------------------------------------
+          std::terminate() detected at Wed Feb  5 20:36:42 2014
+------------------------------------------------------------------------
+
+Configuration:
+  Crash Decoding  : Disabled
+  Current Visual  : None
+  Default Encoding: US-ASCII
+  GNU C Library   : 2.15 stable
+  MATLAB License  : 168993
+  MATLAB Root     : /v/filer4b/software/matlab-2011a
+  MATLAB Version  : 7.12.0.635 (R2011a)
+  Operating System: Linux 3.2.0-57-generic #87-Ubuntu SMP Tue Nov 12 21:35:10 UTC 2013 x86_64
+  Processor ID    : x86 Family 6 Model 12 Stepping 2, GenuineIntel
+  Virtual Machine : Java 1.6.0_17-b04 with Sun Microsystems Inc. Java HotSpot(TM) 64-Bit Server VM mixed mode
+  Window System   : No active display
+
+Fault Count: 1
+
+
+
+Abnormal termination:
+std::terminate()
+
+Register State (captured):
+  RAX = 0000000000000000  RBX = 00002ab68fff2778
+  RCX = ffffd5498ab6194a  RDX = 00002ab6756b9478
+  RSP = 00002ab68fff1b40  RBP = 00002ab68fff1f00
+  RSI = 00002ab67549e6fc  RDI = 00002ab68fff1b50
+
+   R8 = 0000000000000000   R9 = 0000000000000001
+  R10 = 0000000000000000  R11 = 0000000000000000
+  R12 = 0000000000000001  R13 = 00002ab68fff27b0
+  R14 = 0000000000000000  R15 = 0000000000000000
+
+  RIP = 00002ab67549834e  EFL = 0000000000000000
+
+   CS = 000b   FS = 0000   GS = 0000
+
+
+Stack Trace (captured):
+[  0] 0x00002ab675497f49 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwfl.so+00474953 fl::sysdep::linux::unwind_stack(void const**, unsigned long, unsigned long, fl::diag::thread_context const&)+000009
+[  1] 0x00002ab67544ddc1 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwfl.so+00171457 fl::diag::stacktrace_base::capture(fl::diag::thread_context const&, unsigned long)+000161
+[  2] 0x00002ab6754570dd /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwfl.so+00209117
+[  3] 0x00002ab675457364 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwfl.so+00209764 fl::diag::terminate_log(char const*, fl::diag::thread_context const&, bool)+000100
+[  4] 0x00002ab676473be5 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwmcr.so+00420837 fl::diag::terminate_log(char const*, ucontext const*, bool)+000085
+[  5] 0x00002ab676470b54 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwmcr.so+00408404
+[  6] 0x00002ab67647203d /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwmcr.so+00413757
+[  7] 0x00002ab676472197 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwmcr.so+00414103
+[  8] 0x00002ab6764727e6 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwmcr.so+00415718
+[  9] 0x00002ab67647324e /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwmcr.so+00418382
+[ 10] 0x00002ab6771a9f26           /usr/lib/x86_64-linux-gnu/libstdc++.so.6+00388902
+[ 11] 0x00002ab6771a9f53           /usr/lib/x86_64-linux-gnu/libstdc++.so.6+00388947
+[ 12] 0x00002ab6771aa17e           /usr/lib/x86_64-linux-gnu/libstdc++.so.6+00389502
+[ 13] 0x00002ab675715377 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmx.so+00287607
+[ 14] 0x00002ab6757157b8 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmx.so+00288696 mxErrMsgIdAndTxt(char const*, char const*, ...)+000168
+[ 15] 0x00002ab675be9ac0 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwservices.so+00350912
+[ 16] 0x00002ab675beb226 /v/filer4b/software/matlab-2011a/bin/glnxa64/../../bin/glnxa64/libmwservices.so+00356902 svGetPreferencesDirectory(bool)+000070
+[ 17] 0x00002ab693c34526 /v/filer4b/software/matlab-2011a/bin/glnxa64/libnativeservices.so+00005414 Java_com_mathworks_services_Prefs_nativeGetPreferencesDirectory+000022
+[ 18] 0x00002ab690326f50 /v/filer4b/software/matlab-2011a/bin/glnxa64/libnativeservices.so+18446744073649733456
+
+
+
+If this problem is reproducible, please submit a Service Request via:
+    http://www.mathworks.com/support/contact_us/
+
+A technical support engineer might contact you with further information.
+
+Thank you for your help.** This crash report has been saved to disk as /tmp/matlab_crash_dump.27624-1 **
+
+
+
+MATLAB is exiting because of fatal error

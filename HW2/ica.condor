@@ -1,0 +1,13 @@
+Universe = vanilla
+Executable = /lusr/bin/matlab
++Group = "grad"
+Notification = never
+Notify_user = menie482@cs.utexas.edu
+Output     = out.$(Process)
+Error      = err.$(Process)
+Log        = condor.log
+
+num_of_processes=200
+
+Arguments = -nosplash -nodesktop -r experiment
+Queue $(num_of_processes)

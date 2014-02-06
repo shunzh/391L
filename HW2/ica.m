@@ -18,15 +18,14 @@ function [W, diff] = ica(X, n, alpha, maxRun)
 		end
 
 		% one step gradient descent
-		detW = alpha * (eye(n) + (ones(n, t) - 2 * Z) * Y') * W;
+		detW = alpha * (t * eye(n) + (ones(n, t) - 2 * Z) * Y') * W;
 		W = W + detW;
 
 		counter = counter + 1;
 
-		if mod(counter, 100) == 0
+		if mod(counter, 10) == 0
 			diff = [diff; norm(detW)];
-			counter / maxRun
-			diff(end)
+			[counter / maxRun, diff(end)]
 		end
 	end
 end
