@@ -53,7 +53,7 @@ I tried to derive Equation~\ref{eq:dana} from Equation~\ref{eq:ng},
 	&= \eta ((1 - 2Z) Y^T + tI)W (W^TW)^{-1}
 	\label{eq:equiv}
 \end{align}
-So the different is the term, $W^TW$. If $W$ is orthogonal, then it's $W^TW =
+So the different is the term, $W^TW$. If $W$ is othognal, then it's $W^TW =
 I$. We know this is not a valid assumption. However, I still used
 Equation~\ref{eq:dana} in the following experiments.
 
