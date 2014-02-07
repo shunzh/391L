@@ -19,29 +19,39 @@ EID: \texttt{sz4554}}
 \section{Independent Component Analysis}
 
 In this report, I applied Independent Component Analysis on Blind Source
-Separation problem. Let $U$ be the orignal sources, $A$ be mixing
-operation. Let $X = A \times U$. The goal is to find a matrix $W$ such that
-$U = W \times X$, which recover the sources from the observations. 
+Separation problem. Let $U$ be the orignal sources, which is a $n \times t$
+matrix. $n$ is the number of sources and $t$ is the number of data. Let $A$
+be mixing operation, and $X = A U$. The goal is to find a matrix $W$ such
+that $U = W \times X$, which recover the sources from the observations. 
 
-I used the batch update method described on the webpage,
+I used the batch update method described on the webpage (with the mistake
+fixed),
 \begin{equation}
 	\label{eq:dana}
-	\Delta W = \eta (I + (1 - 2Z) Y^T)W
+	\Delta W = \eta (tI + (1 - 2Z) Y^T)W
 \end{equation}
-This is slightly different from the update eqation proved in Ng's note,
+This is slightly different from the update eqation proved in Ng's note.
+That equation uses one sample to update
 \begin{equation}
-	\Delta W = \eta ((1 - 2Z) X^T + (W^T)^{-1})
+	\Delta W = \eta ((1 - 2Z) x^T + (W^T)^{-1})
+	\label{eq:ng}
+\end{equation}
+where $x$ stands for an observation at one time. I first convert it to the
+batch version. Data are added as columns, which make a matrix $X$. $W^T$ is
+simply added $t$ times. So,
+\begin{equation}
+	\Delta W = \eta ((1 - 2Z) X^T + t(W^T)^{-1})
 	\label{eq:ng}
 \end{equation}
 Equation~\ref{eq:dana} is more efficient, as there is no inverse of matrix.
 I tried to derive Equation~\ref{eq:dana} from Equation~\ref{eq:ng},
 \begin{align}
-	\Delta W &= \eta ((1 - 2Z) X^T + (W^T)^{-1}) \\
-	&= \eta ((1 - 2Z) X^T + (W^T)^{-1})W^T (W^T)^{-1} \\
-	&= \eta ((1 - 2Z) X^T W^T + I)(W^T)^{-1} \\
-	&= \eta ((1 - 2Z) (W X)^T + I)(W^T)^{-1} \\
-	&= \eta ((1 - 2Z) Y^T + I)W (W^{-1})(W^T)^{-1} \\
-	&= \eta ((1 - 2Z) Y^T + I)W (W^TW)^{-1}
+	\Delta W &= \eta ((1 - 2Z) X^T + t(W^T)^{-1}) \\
+	&= \eta ((1 - 2Z) X^T + t(W^T)^{-1})W^T (W^T)^{-1} \\
+	&= \eta ((1 - 2Z) X^T W^T + tI)(W^T)^{-1} \\
+	&= \eta ((1 - 2Z) (W X)^T + tI)(W^T)^{-1} \\
+	&= \eta ((1 - 2Z) Y^T + tI)W (W^{-1})(W^T)^{-1} \\
+	&= \eta ((1 - 2Z) Y^T + tI)W (W^TW)^{-1}
 	\label{eq:equiv}
 \end{align}
 So the different is the term, $W^TW$. If $W$ is othognal, then it's $W^TW =
@@ -62,11 +72,11 @@ Equation~\ref{eq:dana} in the experiments.
 \end{subfigure}
 \caption{The bottom 3 lines are original signals from
 \texttt{icaTest.mat}. The top 3 lines are reconstructed signals with $\eta
-= 0.01$ and 1000000 iterations. Two independent experiments are shown.}
+= 0.01$ and 1000 iterations. Two independent experiments are shown.}
 \label{fig:rep}
 \end{figure}
 
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{ | l l l l | }
 \hline
@@ -82,7 +92,7 @@ highlighted.}
 \label{tbl:corr1}
 \end{table}
 
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{ | l l l l | }
 \hline
@@ -98,22 +108,25 @@ highlighted.}
 \label{tbl:corr2}
 \end{table}
 
-The results are scaled into $[0, 1]$ interval. This experiment is repeated
-twice.  The results are in shown in Figure~\ref{fig:rep}. The result can be
-permutation of the original sources. Scaling is also possible (as the
-results are scaled into $[0, 1]$, the signal could be flipped in this
-case). The correlation between source and reconstructed signals are shown in
-Table~\ref{tbl:corr1} and \ref{tbl:corr2}. They are highly correlated if
-the correlavance is close to $1$ or $-1$. We can tell that, for the left figure,
-the mapping is 0-4, 1-5, 2-3. While in the right one, the mapping is 0-5,
-1-3, 2-4. This result can be verified visually. We can also observe that
-the algorithm overall generate highly close signal, with has more than
-$0.99$ correlavance with its source signal.
+First I did experiment on \texttt{icaTest.mat}. $\eta = 0.01$ and 1000
+iterations. The results are in shown in Figure~\ref{fig:rep}. 
 
-\begin{figure}
+The results are scaled into $[0, 1]$ interval. This experiment is repeated
+twice. Actually, the result can be permutation of the original sources.
+Scaling is also possible (as the results are scaled into $[0, 1]$, the
+signal could be flipped in this case, though I didn't observe this in the
+experiment). The correlation between source and reconstructed signals are
+shown in Table~\ref{tbl:corr1} and \ref{tbl:corr2}. By defintion, they are
+highly correlated if the correlavance is close to $1$ or $-1$. We can tell
+that, for the left figure, the mapping is 0-4, 1-5, 2-3. While in the right
+one, the mapping is 0-5, 1-3, 2-4. This result can be also verified visually. We
+can also observe that the algorithm overall generate highly close signal,
+with has more than $0.99$ correlavance with its source signal.
+
+\begin{figure}[h]
 \centering
 \includegraphics[width=.6\textwidth]{detW.png}
-\caption{$\Delta W$ over number of iterations. Average of 5 runs. The
+\caption{$||\Delta W||$ over number of iterations. Average of 100 runs. The
 length of vertical bars is $\sigma$ assmuing Gaussian distribution of data
 points at each iteration.}
 \label{fig:detW}
@@ -132,14 +145,14 @@ become smaller after more iterations. The algorithm converges after $2
 
 \subsection{Experiments on Sound}
 
-\begin{figure}
+\begin{figure}[h]
 \centering
 \includegraphics[width=.8\textwidth]{soundfull.png}
 \caption{}
 \label{fig:sound}
 \end{figure}
 
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{ | l l l l l l | }
 \hline
@@ -152,12 +165,13 @@ Source 5 &\textbf{0.9999}& 0.0051& 0.0020& 0.0125&-0.0014\\
 \hline
 \end{tabular}
 \caption{Linear correlation between source and reconstructed signals.}
-\label{tbl:corrsf}
+\label{tbl:corrs}
 \end{table}
 
-Result on sound are shown in Figure~\ref{fig:sound}. The correlation result
-is shown in Table~\ref{tbl:corrs}. We can observe that the correlation is
-smaller compared to that of experiment on small set.
+The data are from \texttt{sounds.mat}. $\eta = 10 ^ {-6}$ as $t$ is large
+in one step. It runs 1000 iterations. Result on sound are shown in
+Figure~\ref{fig:sound}. The correlation result is shown in
+Table~\ref{tbl:corrs}.
 
 \section{Discussion}
 
