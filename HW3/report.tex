@@ -1,0 +1,77 @@
+\documentclass[10pt]{article}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{listings}
+\usepackage{enumerate}
+
+\title{CS 391L Machine Learning Assignment 3}
+\author{Name: Shun Zhang\\
+Email address: \texttt{jensen.zhang@utexas.edu}\\
+EID: \texttt{sz4554}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+
+\begin{enumerate}[(a)]
+
+\item \begin{align}
+Cov(y) &= E((y - E(y)(y - E(y)^T)\\
+&= E((Ax + b - E(Ax + b))(Ax + b - E(Ax + b)^T))\\
+&= E((Ax - E(Ax))(Ax - E(Ax))^T) &\text{Linearity of $E$}\\
+&= AE((x - E(x))(x - E(x))^T)A^T\\
+&= A\Sigma A^T &\text{Def. of Cov.}
+\end{align}
+
+\item Base case: by the defition of eigenvalue and eigenvector, $Ax =
+\lambda x$.
+
+Inductive hypothesis: assume $A^k x = \lambda^k x$ for some $k \in N$.
+Want to show $A^{k+1} x = \lambda^{k+1} x$.
+\begin{align}
+A^k x &= \lambda^k x &\text{I.H.}\\
+A^{k+1} x &= A \lambda^k x\\
+A^{k+1} x &= \lambda^k Ax\\
+A^{k+1} x &= \lambda^{k+1} x &Ax = \lambda x
+\end{align}
+
+\end{enumerate}
+
+\section*{Problem 2}
+\begin{enumerate}[(a)]
+
+\item  $\tanh x = \dfrac{\sinh x}{\cosh x} = \dfrac{e^x - e^{-x}}{e^x
++ e^{-x}} = \dfrac{1 - e^{-2x}}{1 + e^{-2x}}$. Compared to $\dfrac{1}{1
++ e^{-x}}$, $\tanh$ has a steeper slope.
+
+To be an appropriate sigmoid function, $\tanh$ needs to be scaled to
+range of [0, 1].
+
+\item $1 - \tanh^2$.
+
+\item We know $W^k$ is $2 \times 2$.
+\begin{align}
+\dfrac{\partial H}{\partial w_{ij}^k} &= \dfrac{\partial}{\partial
+w_{ij}^k} \sum\limits_{k=0}^{K-1} (\lambda^{k+1})^T g(W^kx^k)\\
+&= \dfrac{\partial}{\partial w_{ij}^k} (\lambda_1^{k+1} g(w_{11}x_1^k
++ w_{12}x_2^k) + \lambda_2^{k+1} g(w_{21}x_1^k + w_{22}x_2^k))
+\end{align}
+
+So, generally,
+
+\begin{align}
+\dfrac{\partial H}{\partial w_{ij}^k} &= \lambda^{k+1}
+\dfrac{\partial}{\partial w_{ij}^k} g(W^k x^k)\\
+&= \lambda^{k+1} \dfrac{\partial}{\partial w_{ij}^k} g(\sum
+\limits_{l}w_{il}x_l^{k}) \\
+&= \lambda^{k+1} x_j^k g'(w_i^k x^k)
+\end{align}
+
+\end{enumerate}
+
+\section*{Problem 3}
+
+\end{document}
