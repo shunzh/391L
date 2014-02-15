@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2012.10.5)  14 FEB 2014 18:47
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7) (format=pdflatex 2012.10.5)  14 FEB 2014 20:32
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -133,54 +133,222 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks21
 )
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/qtree/qtree.sty
+Package: 2008/12/12 v.3.1bQtree: tree-drawing for linguistics
+Package: qtree 2008/12/12 v.3.1bQtree: tree-drawing for linguistics
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/pict2e/pict2e.sty
+Package: pict2e 2008/07/22 v0.2w Improved picture commands (HjG,RN,JT)
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/pict2e/pict2e.cfg
+File: pict2e.cfg 2004/06/25 v0.1r pict2e configuration for teTeX/TeXLive
+)
+Package pict2e Info: Driver file: pdftex.def on input line 100.
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2008/09/08 v0.04l Graphics/color for pdfTeX
+\Gread@gobject=\count108
+)
+Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 102.
+
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
+File: p2e-pdftex.def 2004/06/25 v0.1r Driver-dependant file (RN,HjG)
+)
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+\pIIe@GRAPH=\toks22
+\@arclen=\dimen116
+\@arcrad=\dimen117
+\@tempdimd=\dimen118
+)
+\c@treecount=\count109
+\c@branchcount=\count110
+\parentbox=\box30
+\treebox=\box31
+\treeboxone=\box32
+\treeboxtwo=\box33
+\treeboxthree=\box34
+\treeboxfour=\box35
+\treeboxfive=\box36
+\treeboxsix=\box37
+\treeboxseven=\box38
+\treeboxeight=\box39
+\treeboxnine=\box40
+\treeboxten=\box41
+\treeboxeleven=\box42
+\treeboxtwelve=\box43
+\treeboxthirteen=\box44
+\treeboxfourteen=\box45
+\treeboxfifteen=\box46
+\treeboxsixteen=\box47
+\treeboxseventeen=\box48
+\treeboxeighteen=\box49
+\treeboxnineteen=\box50
+\treeboxtwenty=\box51
+\treeoffsetone=\skip48
+\treeoffsettwo=\skip49
+\treeoffsetthree=\skip50
+\treeoffsetfour=\skip51
+\treeoffsetfive=\skip52
+\treeoffsetsix=\skip53
+\treeoffsetseven=\skip54
+\treeoffseteight=\skip55
+\treeoffsetnine=\skip56
+\treeoffsetten=\skip57
+\treeoffseteleven=\skip58
+\treeoffsettwelve=\skip59
+\treeoffsetthirteen=\skip60
+\treeoffsetfourteen=\skip61
+\treeoffsetfifteen=\skip62
+\treeoffsetsixteen=\skip63
+\treeoffsetseventeen=\skip64
+\treeoffseteighteen=\skip65
+\treeoffsetnineteen=\skip66
+\treeoffsettwenty=\skip67
+\treeshiftone=\skip68
+\treeshifttwo=\skip69
+\treeshiftthree=\skip70
+\treeshiftfour=\skip71
+\treeshiftfive=\skip72
+\treeshiftsix=\skip73
+\treeshiftseven=\skip74
+\treeshifteight=\skip75
+\treeshiftnine=\skip76
+\treeshiftten=\skip77
+\treeshifteleven=\skip78
+\treeshifttwelve=\skip79
+\treeshiftthirteen=\skip80
+\treeshiftfourteen=\skip81
+\treeshiftfifteen=\skip82
+\treeshiftsixteen=\skip83
+\treeshiftseventeen=\skip84
+\treeshifteighteen=\skip85
+\treeshiftnineteen=\skip86
+\treeshifttwenty=\skip87
+\treewidthone=\skip88
+\treewidthtwo=\skip89
+\treewidththree=\skip90
+\treewidthfour=\skip91
+\treewidthfive=\skip92
+\treewidthsix=\skip93
+\treewidthseven=\skip94
+\treewidtheight=\skip95
+\treewidthnine=\skip96
+\treewidthten=\skip97
+\treewidtheleven=\skip98
+\treewidthtwelve=\skip99
+\treewidththirteen=\skip100
+\treewidthfourteen=\skip101
+\treewidthfifteen=\skip102
+\treewidthsixteen=\skip103
+\treewidthseventeen=\skip104
+\treewidtheighteen=\skip105
+\treewidthnineteen=\skip106
+\treewidthtwenty=\skip107
+\daughteroffsetone=\skip108
+\daughteroffsettwo=\skip109
+\daughteroffsetthree=\skip110
+\daughteroffsetfour=\skip111
+\branchwidthone=\skip112
+\branchwidthtwo=\skip113
+\branchwidththree=\skip114
+\branchwidthfour=\skip115
+\parentoffset=\skip116
+\treeoffset=\skip117
+\daughteroffset=\skip118
+\branchwidth=\skip119
+\parentwidth=\skip120
+\treewidth=\skip121
+\qta=\toks23
+\qtb=\toks24
+\nbranches=\count111
+\qroofx=\count112
+\qroofy=\count113
+\@qrscratchbox=\box52
+)
 (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-\c@lstlisting=\count108
-LaTeX Font Info:    Try loading font information for U+lasy on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+\c@lstlisting=\count114
 
-(/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/ulasy.fd
+(/v/filer4b/software/texlive/2008/texmf-dist/tex/context/base/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count115
+\scratchdimen=\dimen119
+\scratchbox=\box53
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen120
+\MPnumerator=\count119
+\everyMPtoPDFconversion=\toks26
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 16.
+ (/v/filer4b/software/texlive/2008/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-) [1
+)
+[1
 
 {/v/filer4b/software/texlive/2008/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 ]
-[2] (./report.aux) ) 
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
+
+ []
+
+
+Overfull \hbox (40.67262pt too wide) in paragraph at lines 99--122
+[] [] 
+ []
+
+[2] [3] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 2419 strings out of 493876
- 32314 string characters out of 1147346
- 92890 words of memory out of 3000000
- 5715 multiletter control sequences out of 10000+50000
- 9213 words of font info for 38 fonts, out of 3000000 for 5000
+ 3254 strings out of 493876
+ 43327 string characters out of 1147346
+ 120208 words of memory out of 3000000
+ 6524 multiletter control sequences out of 10000+50000
+ 9867 words of font info for 40 fonts, out of 3000000 for 5000
  714 hyphenation exceptions out of 8191
- 27i,13n,32p,221b,238s stack positions out of 5000i,500n,10000p,200000b,50000s
-</v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bl
-uesky/cm/cmbx12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bl
-uesky/cm/cmex10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bl
-uesky/cm/cmmi10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bl
-uesky/cm/cmmi7.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/blu
-esky/cm/cmr10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/blue
-sky/cm/cmr12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/blues
-ky/cm/cmr17.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesk
-y/cm/cmr7.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/
-cm/cmsy10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/
-cm/cmsy7.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bluesky/c
-m/cmtt12.pfb>
-Output written on report.pdf (2 pages, 56275 bytes).
+ 27i,13n,32p,221b,377s stack positions out of 5000i,500n,10000p,200000b,50000s
+</v/filer4b/software/texlive/2008/texmf-dist/fonts/type
+1/bluesky/cm/cmbx10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type
+1/bluesky/cm/cmbx12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type
+1/bluesky/cm/cmex10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type
+1/bluesky/cm/cmmi10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type
+1/bluesky/cm/cmmi7.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1
+/bluesky/cm/cmr10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/
+bluesky/cm/cmr12.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/b
+luesky/cm/cmr17.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/bl
+uesky/cm/cmr7.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/blue
+sky/cm/cmsy10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/blue
+sky/cm/cmsy7.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/blues
+ky/cm/cmti10.pfb></v/filer4b/software/texlive/2008/texmf-dist/fonts/type1/blues
+ky/cm/cmtt12.pfb>
+Output written on report.pdf (3 pages, 68839 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 64 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

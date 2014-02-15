@@ -4,6 +4,7 @@
 \usepackage{natbib}
 \usepackage{listings}
 \usepackage{enumerate}
+\usepackage{qtree}
 
 \title{CS 391L Machine Learning Assignment 3}
 \author{Name: Shun Zhang\\
@@ -73,5 +74,71 @@ So, generally,
 \end{enumerate}
 
 \section*{Problem 3}
+
+\begin{enumerate}[(a)]
+\item The code for computing these results is attached separately.
+
+IG(Color) = 0.1043\\
+IG(Size) = 0.4086\\
+IG(Noise) = 0.0207\\
+
+For small size,
+
+IG(Color) = 0.3219\\
+IG(Noise) = 0.0207\\
+
+For medium size,
+
+IG(Color) = 0.1226\\
+IG(Noise) = 0.1226\\
+
+For large size, IG is clearly 0.
+
+The decision tree is
+
+\Tree [.Size
+  [.\textit{Small}\\Color 
+  	[.\textit{Red}\\Noise
+	  [.\textit{Loud} ]
+	  [.\textit{Quiet} ]
+	]
+	[.\textit{Blue}\\Noise
+	  [.\textit{Loud} ]
+	  [.\textit{Quiet} ]
+	]
+  ]
+  [.\textit{Medium}\\Color 
+  	[.\textit{Red}\\Noise
+	  [.\textit{Loud} ]
+	  [.\textit{Quiet} ]
+	]
+	[.\textit{Blue}\\Noise
+	  [.\textit{Loud} ]
+	  [.\textit{Quiet} ]
+	]
+  ]
+  [.\textit{Medium}\\\textbf{No} ]
+]
+
+\item If the event of missing a datum is uniformly random over all the
+attributes, then it doesn't harm if we simply delete that line. 
+
+\end{enumerate}
+
+\section*{Problem 4}
+
+\begin{enumerate}[(a)]
+
+\item $A = \pi rs + \pi r^2$. Therefore,
+
+$H = \frac{1}{3} \pi r^2 h + \lambda(\pi rs + \pi r^2 - A)$
+
+$\frac{\partial H}{\partial r} = \frac{2}{3} \pi r h + \lambda(\pi(s
++ r \frac{1}{2s} 2r) + 2\pi r) = 0$
+
+$\frac{\partial H}{\partial h} = \frac{1}{3} \pi r^2 + \lambda(\pi r
+\frac{1}{2s} 2h) = 0$
+
+\end{enumerate}
 
 \end{document}
