@@ -42,6 +42,29 @@ A^{k+1} x &= \lambda^{k+1} x &Ax = \lambda x
 \end{enumerate}
 
 \section*{Problem 2}
+
+\begin{enumerate}[(a)]
+
+\item 
+\begin{align}
+r &= 1 - \dfrac{H(Y|X)}{H(X)}\\
+&= \dfrac{H(X) - H(Y|X)}{H(X)}\\
+&= \dfrac{I(Y|X)}{H(X)} &\text{Def. of Mutual Information}
+\end{align}
+
+\item $H(Y|X) \geq 0$, $H(X) > 0$. So $\dfrac{H(Y|X)}{H(X)} \geq 0$,
+$1 - \dfrac{H(Y|X)}{H(X)} \leq 1$.
+
+$H(Y|X) < H(X)$, so $\dfrac{H(Y|X)}{H(X)} <= 1$, $1 -
+\dfrac{H(Y|X)}{H(X)} \geq 0$.
+
+Therefore, $0 \leq r \leq 1$.
+
+\item $\dfrac{H(Y|X)}{H(X)} = 1$, 
+
+\end{enumerate}
+
+\section*{Problem 3}
 \begin{enumerate}[(a)]
 
 \item  $\tanh x = \dfrac{\sinh x}{\cosh x} = \dfrac{e^x - e^{-x}}{e^x
@@ -50,8 +73,6 @@ A^{k+1} x &= \lambda^{k+1} x &Ax = \lambda x
 
 To be an appropriate sigmoid function, $\tanh$ needs to be scaled to
 range of [0, 1].
-
-\item $1 - \tanh^2$.
 
 \item We know $W^k$ is $2 \times 2$.
 \begin{align}
@@ -73,7 +94,7 @@ So, generally,
 
 \end{enumerate}
 
-\section*{Problem 3}
+\section*{Problem 4}
 
 \begin{enumerate}[(a)]
 \item The code for computing these results is attached separately.
@@ -125,7 +146,7 @@ attributes, then it doesn't harm if we simply delete that line.
 
 \end{enumerate}
 
-\section*{Problem 4}
+\section*{Problem 5}
 
 \begin{enumerate}[(a)]
 
