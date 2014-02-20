@@ -79,18 +79,14 @@ range of [0, 1].
 \dfrac{\partial H}{\partial w_{ij}^k} &= \dfrac{\partial}{\partial
 w_{ij}^k} \sum\limits_{k=0}^{K-1} (\lambda^{k+1})^T g(W^kx^k)\\
 &= \dfrac{\partial}{\partial w_{ij}^k} (\lambda_1^{k+1} g(w_{11}x_1^k
-+ w_{12}x_2^k) + \lambda_2^{k+1} g(w_{21}x_1^k + w_{22}x_2^k))
++ w_{12}x_2^k) + \lambda_2^{k+1} g(w_{21}x_1^k + w_{22}x_2^k))\\
+&= \lambda_1^{k+1} \dfrac{\partial}{\partial w_{ij}^k} g(w_{11}x_1^k
++ w_{12}x_2^k) + \lambda_2^{k+1} \dfrac{\partial}{\partial w_{ij}^k}
+g(w_{21}x_1^k + w_{22}x_2^k)
 \end{align}
 
-So, generally,
-
-\begin{align}
-\dfrac{\partial H}{\partial w_{ij}^k} &= \lambda^{k+1}
-\dfrac{\partial}{\partial w_{ij}^k} g(W^k x^k)\\
-&= \lambda^{k+1} \dfrac{\partial}{\partial w_{ij}^k} g(\sum
-\limits_{l}w_{il}x_l^{k}) \\
-&= \lambda^{k+1} x_j^k g'(w_i^k x^k)
-\end{align}
+Therefore, for $w_{11}, w_{12}, w_{21}, w_{22}$, there is
+$\dfrac{\partial H}{\partial w_{ij}^k} = \lambda^{k+1} x_j^k g'(w_i^k x^k)$.
 
 \end{enumerate}
 
@@ -119,13 +115,10 @@ The decision tree is
 
 \Tree [.Size
   [.\textit{Small}\\Color 
-  	[.\textit{Red}\\Noise
-	  [.\textit{Loud} ]
-	  [.\textit{Quiet} ]
-	]
+  	[.\textit{Red}\\\textbf{Yes} ]
 	[.\textit{Blue}\\Noise
-	  [.\textit{Loud} ]
-	  [.\textit{Quiet} ]
+	  [.\textit{Loud}\\\textbf{Yes} ]
+	  [.\textit{Quiet}\\\textbf{Yes} ]
 	]
   ]
   [.\textit{Medium}\\Color 
