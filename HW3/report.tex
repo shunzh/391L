@@ -60,7 +60,8 @@ $H(Y|X) < H(X)$, so $\dfrac{H(Y|X)}{H(X)} <= 1$, $1 -
 
 Therefore, $0 \leq r \leq 1$.
 
-\item $\dfrac{H(Y|X)}{H(X)} = 1$, 
+\item $r = 0$ when two variables are independent. $r = 1$ when two
+vairables are perfectly correlated.
 
 \end{enumerate}
 
@@ -115,23 +116,17 @@ The decision tree is
 
 \Tree [.Size
   [.\textit{Small}\\Color 
-  	[.\textit{Red}\\\textbf{Yes} ]
-	[.\textit{Blue}\\Noise
-	  [.\textit{Loud}\\\textbf{Yes} ]
-	  [.\textit{Quiet}\\\textbf{Yes} ]
-	]
+  	[.\textit{Red}\\\textbf{?} ]
+	[.\textit{Blue}\\\textbf{Yes} ]
   ]
   [.\textit{Medium}\\Color 
   	[.\textit{Red}\\Noise
-	  [.\textit{Loud} ]
-	  [.\textit{Quiet} ]
+	  [.\textit{Loud}\\\textbf{No} ]
+	  [.\textit{Quiet}\\\textbf{Yes} ]
 	]
-	[.\textit{Blue}\\Noise
-	  [.\textit{Loud} ]
-	  [.\textit{Quiet} ]
-	]
+	[.\textit{Blue}\\\textbf{Yes} ]
   ]
-  [.\textit{Medium}\\\textbf{No} ]
+  [.\textit{Large}\\\textbf{No} ]
 ]
 
 \item If the event of missing a datum is uniformly random over all the
@@ -143,16 +138,21 @@ attributes, then it doesn't harm if we simply delete that line.
 
 \begin{enumerate}[(a)]
 
-\item $A = \pi rs + \pi r^2$. Therefore,
+\item $\min \dfrac{1}{3} \pi r^2 h$ such that $A = \pi rs + \pi r^2$,
+$s^2 = r^2 + h^2$.
 
-$H = \frac{1}{3} \pi r^2 h + \lambda(\pi rs + \pi r^2 - A)$
+Use Lagrange multiplier, $H = \frac{1}{3} \pi r^2 h + \lambda(\pi rs +
+\pi r^2 - A) + \gamma (r^2 + h^2 - s^2)$.
 
-$\frac{\partial H}{\partial r} = \frac{2}{3} \pi r h + \lambda(\pi(s
-+ r \frac{1}{2s} 2r) + 2\pi r) = 0$
+$\frac{\partial H}{\partial r} = \frac{2}{3} \pi r h + \lambda(\pi s +
+2 \pi r) + 2 \gamma r = 0$
 
-$\frac{\partial H}{\partial h} = \frac{1}{3} \pi r^2 + \lambda(\pi r
-\frac{1}{2s} 2h) = 0$
+$\frac{\partial H}{\partial h} = \frac{1}{3} \pi r^2 + 2 \gamma h = 0$
 
 \end{enumerate}
+
+\section*{Problem 6}
+
+
 
 \end{document}
