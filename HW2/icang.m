@@ -21,11 +21,13 @@ function [W, diff] = icang(X, n, alpha, maxRun)
 			% one step gradient descent
 			detW = alpha * ((ones(n, 1) - 2 * z) * x' + inv(W'));
 			W = W + detW;
+
+			diff(end)
 		end
 		
 		counter = counter + 1;
 
 		diff = [diff; norm(detW)];
-		[counter / maxRun, diff(end)]
+		counter / maxRun
 	end
 end
