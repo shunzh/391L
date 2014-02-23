@@ -157,17 +157,31 @@ Each node has $m$ possible attibutes. So there are no more than
 $m^n$ configuration of the decision tree. The number of different
 classifiers is also no more than $m^n$.
 
-For data set with size of $k$, a decision tree should have $2^k$
-decisions. So the VC dimension is $\log_2{m^n} = n \log_2{m} = O(n
-\log(m))$.
+We know that for data set with size of $k$, a decision tree should
+have $2^k$ decisions. So the VC dimension is $\log_2{m^n} = n
+\log_2{m} = O(n\log(m))$.
 
 \section*{Problem 7}
 
 The smallest positive integer p is 2.
 
 When $p = 1$, $k(x, x_i) = 1 + x^T x_i = 1 + x_1 x_{i1} + x_2 x_{i2}$.
-So $\Phi(x) = (1, x_1, x_2)^T$. Clearly as $(x_1, x_2)$ cannot be
+So $\Phi(x) = (1, x_1, x_2)^T$. Clearly, as $(x_1, x_2)$ cannot be
 seperated by SVM, adding a bias of 1 doesn't help either.
+
+When $p = 2$ --- same case as the class note --- $k(x, x_i) = (1 + x^T
+x_i)^2 = (1 + x_1 x_{i1} + x_2 x_{i2})^2 = 1 + x_1^2 x_{i1}^2 + x_2^2
+x_{i2}^2 + 2x_1x_{i1} + 2x_2x_{i2} + 2x_1x_{i1}x_2x_{i2}$. Then
+$\Phi(x) = (1, x_1^2, x_2^2, \sqrt{2}x_1, \sqrt{2}x_2,
+\sqrt{2}x_1x_2)^T$.
+
+$\Phi((1, 1)^T) = (1, 1, 1, \sqrt{2}, \sqrt{2}, \sqrt{2})^T$.
+
+$\Phi((1, -1)^T) = (1, 1, 1, \sqrt{2}, -\sqrt{2}, -\sqrt{2})^T$.
+
+$\Phi((-1, 1)^T) = (1, 1, 1, -\sqrt{2}, \sqrt{2}, -\sqrt{2})^T$.
+
+$\Phi((-1, -1)^T) = (1, 1, 1, -\sqrt{2}, -\sqrt{2}, \sqrt{2})^T$.
 
 Using a value of $p$ larger than minimum would unnecessarily map the
 data to higher dimension. The classifier becomes more nonlinear in
