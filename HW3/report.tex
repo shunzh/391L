@@ -27,8 +27,8 @@ Cov(y) &= E((y - E(y)(y - E(y)^T)\\
 &= A\Sigma A^T &\text{Def.\ of Cov.\ }
 \end{align}
 
-\item Base case: by the definition of eigenvalue and eigenvector, $Ax =
-\lambda x$.
+\item Base case: when $k = 0$, $I x = \lambda^0 x$. When $k = 1$, by
+the definition of eigenvalue and eigenvector, $Ax = \lambda x$.
 
 Inductive hypothesis: assume $A^k x = \lambda^k x$ for some $k \in N$.
 Want to show $A^{k+1} x = \lambda^{k+1} x$.
@@ -38,7 +38,9 @@ A^{k+1} x &= A \lambda^k x\\
 A^{k+1} x &= \lambda^k Ax\\
 A^{k+1} x &= \lambda^{k+1} x &Ax = \lambda x
 \end{align}
-% negative
+
+If $k < 0$, we already know $A^{-k} x = \lambda^{-k} x$. By algebra,
+$\lambda^k A^{-k} x = x$, $\lambda^k x = A^{k} x$.
 
 \end{enumerate}
 
@@ -194,13 +196,17 @@ $Q(\lambda) = I\lambda - \frac{1}{2} \lambda^T A \lambda $, where $A =
 1 & -1 & -1 & 9
 \end{pmatrix}
 $, the elements of which are computed by the kernel function. The
-solution is $\lambda_i = \frac{1}{8}$ for $i = 1,2,3,4$.  $Q(\lambda)
-= \frac{1}{4}$. 
+solution is $\lambda_i = \frac{1}{8}$ for $i = 1,2,3,4$. They are all
+support vectors, and they are linearly separable.
 
 \hfill
 
 Using a value of $p$ larger than minimum would unnecessarily map the
-data to higher dimension. The classifier becomes more nonlinear in
+data to higher dimension. The classifier becomes more flexible in
 lower dimension, and thus may overfit the data.
+
+However, if it has a regularization term, it doesn't have such
+downside. For example, if the regularization term is $||w||_1$, then
+it becomes sparse coding.
 
 \end{document}
