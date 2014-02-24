@@ -38,6 +38,7 @@ A^{k+1} x &= A \lambda^k x\\
 A^{k+1} x &= \lambda^k Ax\\
 A^{k+1} x &= \lambda^{k+1} x &Ax = \lambda x
 \end{align}
+% negative
 
 \end{enumerate}
 
@@ -78,7 +79,7 @@ range of [0, 1].
 \item We know $W^k$ is $2 \times 2$.
 \begin{align}
 \dfrac{\partial H}{\partial w_{ij}^k} &= \dfrac{\partial}{\partial
-w_{ij}^k} \sum\limits_{k=0}^{K-1} (\lambda^{k+1})^T g(W^kx^k)\\
+w_{ij}^k} (\lambda^{k+1})^T g(W^kx^k)\\
 &= \dfrac{\partial}{\partial w_{ij}^k} (\lambda_1^{k+1} g(w_{11}x_1^k
 + w_{12}x_2^k) + \lambda_2^{k+1} g(w_{21}x_1^k + w_{22}x_2^k))\\
 &= \lambda_1^{k+1} \dfrac{\partial}{\partial w_{ij}^k} g(w_{11}x_1^k
@@ -103,7 +104,7 @@ IG(Noise) = 0.0207\\
 For small size,
 
 IG(Color) = 0.3219\\
-IG(Noise) = 0.0207\\
+IG(Noise) = 0.0729\\
 
 For medium size,
 
@@ -183,19 +184,18 @@ $\Phi(x) = (1, x_1^2, x_2^2, \sqrt{2}x_1, \sqrt{2}x_2,
 % 
 % $\Phi((-1, -1)^T) = (1, 1, 1, -\sqrt{2}, -\sqrt{2}, \sqrt{2})^T$.
 
-$Q(\lambda) = (I - \frac{1}{2} A) \begin{pmatrix}
-\lambda_1\\\lambda_2\\\lambda_3\\\lambda_4 \end{pmatrix}$, where $A =
+Let $\lambda = \begin{pmatrix}
+\lambda_1\\\lambda_2\\\lambda_3\\\lambda_4 \end{pmatrix}$.
+$Q(\lambda) = I\lambda - \frac{1}{2} \lambda^T A \lambda $, where $A =
 \begin{pmatrix}
 9 & -1 & -1 & 1\\
 -1 & 9 & 1 & -1\\
 -1 & 1 & 9 & -1\\
 1 & -1 & -1 & 9
 \end{pmatrix}
-$, the elements of which are computed by the kernel function.
-
-The solution is $\lambda_i = \frac{1}{8}$ for $i = 1,2,3,4$.
-$Q(\lambda) = \frac{1}{4}$. This satisfies $\sum \lambda_i d_i = 0$
-for all $i$. So they are all support vectors and linearly separable.
+$, the elements of which are computed by the kernel function. The
+solution is $\lambda_i = \frac{1}{8}$ for $i = 1,2,3,4$.  $Q(\lambda)
+= \frac{1}{4}$. 
 
 \hfill
 
