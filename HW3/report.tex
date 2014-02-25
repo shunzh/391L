@@ -126,7 +126,7 @@ The decision tree is
   ]
   [.\textit{Medium}\\Color 
   	[.\textit{Red}\\Noise
-	  [.\textit{Loud}\\\textbf{No} ]
+	  [.\textit{Loud}\\\textbf{?} ]
 	  [.\textit{Quiet}\\\textbf{Yes} ]
 	]
 	[.\textit{Blue}\\\textbf{Yes} ]
@@ -143,16 +143,11 @@ attributes, then it doesn't harm if we simply delete that line.
 
 \begin{enumerate}[(a)]
 
-\item $\min \dfrac{1}{3} \pi r^2 h$ such that $A = \pi rs + \pi r^2$,
-$s^2 = r^2 + h^2$.
+\item $\min \dfrac{1}{3} \pi r^2 h$ such that $A = \pi r \sqrt{r^2 +
+h^2} + \pi r^2$,
 
-Use Lagrange multiplier, $H = \frac{1}{3} \pi r^2 h + \lambda(\pi rs +
-\pi r^2 - A) + \gamma (r^2 + h^2 - s^2)$.
-
-$\frac{\partial H}{\partial r} = \frac{2}{3} \pi r h + \lambda(\pi s +
-2 \pi r) + 2 \gamma r = 0$
-
-$\frac{\partial H}{\partial h} = \frac{1}{3} \pi r^2 + 2 \gamma h = 0$
+Use Lagrange multiplier, $H = \frac{1}{3} \pi r^2 h + \lambda(\pi r
+\sqrt{r^2 + h^2} + \pi r^2 - A)$.
 
 \end{enumerate}
 
