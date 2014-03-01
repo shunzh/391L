@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.8)  24 FEB 2014 21:11
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.8)  28 FEB 2014 20:36
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -87,35 +87,28 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
-Package: natbib 2009/07/16 8.31 (PWD, AO)
-\bibhang=\skip46
-\bibsep=\skip47
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count99
-)
 (/usr/share/texmf-texlive/tex/latex/listings/listings.sty
 (/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks19
 )
-\lst@mode=\count100
+\lst@mode=\count99
 \lst@gtempboxa=\box28
 \lst@token=\toks20
-\lst@length=\count101
+\lst@length=\count100
 \lst@currlwidth=\dimen112
-\lst@column=\count102
-\lst@pos=\count103
+\lst@column=\count101
+\lst@pos=\count102
 \lst@lostspace=\dimen113
 \lst@width=\dimen114
-\lst@newlines=\count104
-\lst@lineno=\count105
+\lst@newlines=\count103
+\lst@lineno=\count104
 \lst@maxwidth=\dimen115
 
 (/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count106
-\lst@skipnumbers=\count107
+\c@lstnumber=\count105
+\lst@skipnumbers=\count106
 \lst@framebox=\box29
 )
 (/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
@@ -139,7 +132,7 @@ Package pict2e Info: Driver file: pdftex.def on input line 101.
 
 (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
-\Gread@gobject=\count108
+\Gread@gobject=\count107
 )
 Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 103.
 
@@ -154,8 +147,8 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 \@arcrad=\dimen117
 \@tempdimd=\dimen118
 )
-\c@treecount=\count109
-\c@branchcount=\count110
+\c@treecount=\count108
+\c@branchcount=\count109
 \parentbox=\box30
 \treebox=\box31
 \treeboxone=\box32
@@ -178,117 +171,117 @@ Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 \treeboxeighteen=\box49
 \treeboxnineteen=\box50
 \treeboxtwenty=\box51
-\treeoffsetone=\skip48
-\treeoffsettwo=\skip49
-\treeoffsetthree=\skip50
-\treeoffsetfour=\skip51
-\treeoffsetfive=\skip52
-\treeoffsetsix=\skip53
-\treeoffsetseven=\skip54
-\treeoffseteight=\skip55
-\treeoffsetnine=\skip56
-\treeoffsetten=\skip57
-\treeoffseteleven=\skip58
-\treeoffsettwelve=\skip59
-\treeoffsetthirteen=\skip60
-\treeoffsetfourteen=\skip61
-\treeoffsetfifteen=\skip62
-\treeoffsetsixteen=\skip63
-\treeoffsetseventeen=\skip64
-\treeoffseteighteen=\skip65
-\treeoffsetnineteen=\skip66
-\treeoffsettwenty=\skip67
-\treeshiftone=\skip68
-\treeshifttwo=\skip69
-\treeshiftthree=\skip70
-\treeshiftfour=\skip71
-\treeshiftfive=\skip72
-\treeshiftsix=\skip73
-\treeshiftseven=\skip74
-\treeshifteight=\skip75
-\treeshiftnine=\skip76
-\treeshiftten=\skip77
-\treeshifteleven=\skip78
-\treeshifttwelve=\skip79
-\treeshiftthirteen=\skip80
-\treeshiftfourteen=\skip81
-\treeshiftfifteen=\skip82
-\treeshiftsixteen=\skip83
-\treeshiftseventeen=\skip84
-\treeshifteighteen=\skip85
-\treeshiftnineteen=\skip86
-\treeshifttwenty=\skip87
-\treewidthone=\skip88
-\treewidthtwo=\skip89
-\treewidththree=\skip90
-\treewidthfour=\skip91
-\treewidthfive=\skip92
-\treewidthsix=\skip93
-\treewidthseven=\skip94
-\treewidtheight=\skip95
-\treewidthnine=\skip96
-\treewidthten=\skip97
-\treewidtheleven=\skip98
-\treewidthtwelve=\skip99
-\treewidththirteen=\skip100
-\treewidthfourteen=\skip101
-\treewidthfifteen=\skip102
-\treewidthsixteen=\skip103
-\treewidthseventeen=\skip104
-\treewidtheighteen=\skip105
-\treewidthnineteen=\skip106
-\treewidthtwenty=\skip107
-\daughteroffsetone=\skip108
-\daughteroffsettwo=\skip109
-\daughteroffsetthree=\skip110
-\daughteroffsetfour=\skip111
-\branchwidthone=\skip112
-\branchwidthtwo=\skip113
-\branchwidththree=\skip114
-\branchwidthfour=\skip115
-\parentoffset=\skip116
-\treeoffset=\skip117
-\daughteroffset=\skip118
-\branchwidth=\skip119
-\parentwidth=\skip120
-\treewidth=\skip121
+\treeoffsetone=\skip46
+\treeoffsettwo=\skip47
+\treeoffsetthree=\skip48
+\treeoffsetfour=\skip49
+\treeoffsetfive=\skip50
+\treeoffsetsix=\skip51
+\treeoffsetseven=\skip52
+\treeoffseteight=\skip53
+\treeoffsetnine=\skip54
+\treeoffsetten=\skip55
+\treeoffseteleven=\skip56
+\treeoffsettwelve=\skip57
+\treeoffsetthirteen=\skip58
+\treeoffsetfourteen=\skip59
+\treeoffsetfifteen=\skip60
+\treeoffsetsixteen=\skip61
+\treeoffsetseventeen=\skip62
+\treeoffseteighteen=\skip63
+\treeoffsetnineteen=\skip64
+\treeoffsettwenty=\skip65
+\treeshiftone=\skip66
+\treeshifttwo=\skip67
+\treeshiftthree=\skip68
+\treeshiftfour=\skip69
+\treeshiftfive=\skip70
+\treeshiftsix=\skip71
+\treeshiftseven=\skip72
+\treeshifteight=\skip73
+\treeshiftnine=\skip74
+\treeshiftten=\skip75
+\treeshifteleven=\skip76
+\treeshifttwelve=\skip77
+\treeshiftthirteen=\skip78
+\treeshiftfourteen=\skip79
+\treeshiftfifteen=\skip80
+\treeshiftsixteen=\skip81
+\treeshiftseventeen=\skip82
+\treeshifteighteen=\skip83
+\treeshiftnineteen=\skip84
+\treeshifttwenty=\skip85
+\treewidthone=\skip86
+\treewidthtwo=\skip87
+\treewidththree=\skip88
+\treewidthfour=\skip89
+\treewidthfive=\skip90
+\treewidthsix=\skip91
+\treewidthseven=\skip92
+\treewidtheight=\skip93
+\treewidthnine=\skip94
+\treewidthten=\skip95
+\treewidtheleven=\skip96
+\treewidthtwelve=\skip97
+\treewidththirteen=\skip98
+\treewidthfourteen=\skip99
+\treewidthfifteen=\skip100
+\treewidthsixteen=\skip101
+\treewidthseventeen=\skip102
+\treewidtheighteen=\skip103
+\treewidthnineteen=\skip104
+\treewidthtwenty=\skip105
+\daughteroffsetone=\skip106
+\daughteroffsettwo=\skip107
+\daughteroffsetthree=\skip108
+\daughteroffsetfour=\skip109
+\branchwidthone=\skip110
+\branchwidthtwo=\skip111
+\branchwidththree=\skip112
+\branchwidthfour=\skip113
+\parentoffset=\skip114
+\treeoffset=\skip115
+\daughteroffset=\skip116
+\branchwidth=\skip117
+\parentwidth=\skip118
+\treewidth=\skip119
 \qta=\toks23
 \qtb=\toks24
-\nbranches=\count111
-\qroofx=\count112
-\qroofy=\count113
+\nbranches=\count110
+\qroofx=\count111
+\qroofy=\count112
 \@qrscratchbox=\box52
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-\c@lstlisting=\count114
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+\c@lstlisting=\count113
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
+\scratchcounter=\count114
 \scratchdimen=\dimen119
 \scratchbox=\box53
-\nofMPsegments=\count116
-\nofMParguments=\count117
+\nofMPsegments=\count115
+\nofMParguments=\count116
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count118
+\MPscratchCnt=\count117
 \MPscratchDim=\dimen120
-\MPnumerator=\count119
+\MPnumerator=\count118
 \everyMPtoPDFconversion=\toks26
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 18.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 17.
  (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [1
@@ -308,15 +301,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 115--117
 
  []
 
+
+Overfull \hbox (47.75314pt too wide) in paragraph at lines 122--136
+[] [] 
+ []
+
 [3] [4] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3266 strings out of 495061
- 42379 string characters out of 1182621
- 111400 words of memory out of 3000000
- 6438 multiletter control sequences out of 15000+50000
+ 2935 strings out of 495061
+ 38476 string characters out of 1182621
+ 106689 words of memory out of 3000000
+ 6111 multiletter control sequences out of 15000+50000
  9867 words of font info for 40 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 27i,13n,32p,221b,369s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,13n,32p,223b,369s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
 m/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sha
@@ -329,7 +327,7 @@ usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
 exmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-texlive
 /fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type
 1/public/amsfonts/cm/cmtt12.pfb>
-Output written on report.pdf (4 pages, 152582 bytes).
+Output written on report.pdf (4 pages, 158604 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
