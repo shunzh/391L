@@ -8,7 +8,7 @@
 % pa = parents of nodes
 % cpts
 function [pa, cpts] = generateGraph(n, spar)
-	pa = cell(n, 1);
+	pa = cell(1, n);
 
 	% let this node be i
 	for i = 1 : n
@@ -21,7 +21,8 @@ function [pa, cpts] = generateGraph(n, spar)
 		end
 	end
 	
-	cpts = cell(n, 1);
+	cpts = cell(1, n);
+
 	for i = 1 : n
 		% it has 2^paNum values
 		% corresponding to 1stParent * 2^0 + 2nd Parent * 2^1 + ..
