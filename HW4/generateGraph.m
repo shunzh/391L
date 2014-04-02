@@ -2,12 +2,12 @@
 %
 % Args:
 % n = number of the nodes
-% spar = sparcity
+% spar = sparcity of the graph
 %
 % Return:
 % pa = parents of nodes
-% cpt
-function [pa, cpt] = generateGraph(n, spar)
+% cpts
+function [pa, cpts] = generateGraph(n, spar)
 	pa = cell(n, 1);
 
 	% let this node be i
@@ -18,10 +18,15 @@ function [pa, cpt] = generateGraph(n, spar)
 			if rand() > spar
 				pa{i} = [pa{i} j];
 			end
+		end
+	end
 	
-	cpt = cell(n, 1);
+	cpts = cell(n, 1);
 	for i = 1 : n
 		% it has 2^paNum values
+		% corresponding to 1stParent * 2^0 + 2nd Parent * 2^1 + ..
+		% each parent could be 0 or 1
 		paNum = size(pa{i}, 2);
-
+		cpts{i} = rand(1, 2^paNum);
+	end
 end
