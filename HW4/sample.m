@@ -20,9 +20,5 @@ function [s] = sample(parents, cpt)
 		p = cpt(key + 1);
 	end
 
-	if rand() < p
-		s = 1;
-	else
-		s = 0;
-	end
+	s = rand() < p;
 end
