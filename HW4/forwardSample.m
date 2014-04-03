@@ -5,6 +5,7 @@ function [s] = forwardSample(pa, cpts)
 
 	for i = 1 : n
 		parents = s(pa{i});
-		s(i) = sample(parents, cpts{i});
+		p = cptLookUp(parents, cpts{i});
+		s(i) = rand() < p;
 	end
 end

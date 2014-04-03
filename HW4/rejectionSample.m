@@ -23,8 +23,6 @@ function [p] = rejectionSample(pa, cpts, qmask, q, emask, e, m)
 		end
 	end
 
-	samples
-
 	acc_m = size(samples, 1);
 
 	assert (acc_m != 0); % This is possible.

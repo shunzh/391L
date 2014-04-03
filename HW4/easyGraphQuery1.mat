@@ -1,0 +1,21 @@
+# Created by Octave 3.2.4, Wed Apr 02 21:16:23 2014 CDT <menie@ubuntu>
+# name: qmask
+# type: matrix
+# rows: 1
+# columns: 2
+ 0 1
+# name: q
+# type: matrix
+# rows: 1
+# columns: 2
+ 0 1
+# name: emask
+# type: matrix
+# rows: 1
+# columns: 2
+ 1 0
+# name: e
+# type: matrix
+# rows: 1
+# columns: 2
+ 1 0
