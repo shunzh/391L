@@ -3,6 +3,10 @@ function [p] = gibbsSampleHelper(pa, cpts, s)
 	n = size(pa, 2);
 
 	for i = 1 : n
-		p = p * cptLookUp(s(pa{i}), cpts{i});
+		pi = cptLookUp(s(pa{i}), cpts{i});
+		if s(i) == 0
+			pi = 1 - pi;
+		end
+		p = p * pi;
 	end
 end

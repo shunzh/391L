@@ -13,7 +13,8 @@ function [p] = cptLookUp(parents, cpt)
 		p = cpt(1);
 	else
 		% determine by looking up cpt
-		% reverse it to get the binary representation
+		% reverse it to get the binary representation (high to low)
+		parents = parents(end : -1 : 1);
 		key = polyval(parents, 2);
 
 		p = cpt(key + 1);

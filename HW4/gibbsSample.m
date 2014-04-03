@@ -10,7 +10,7 @@
 % t = burnin iterations
 function [p] = gibbsSample(pa, cpts, qmask, q, emask, e, m, t)
 	% there shouldn't be overlap on query and evidence
-	assert (any(qmask == emask) == 0);
+	assert (any(qmask & emask) == 0);
 	assert (m > 0);
 
 	n = size(pa, 2);

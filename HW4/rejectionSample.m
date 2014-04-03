@@ -9,7 +9,7 @@
 % m = number of iterations
 function [p] = rejectionSample(pa, cpts, qmask, q, emask, e, m)
 	% there shouldn't be overlap on query and evidence
-	assert (any(qmask == emask) == 0);
+	assert (any(qmask & emask) == 0);
 
 	samples = [];
 
