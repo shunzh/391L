@@ -16,7 +16,7 @@ function [p] = gibbsSample(pa, cpts, qmask, q, emask, e, m, t)
 	n = size(pa, 2);
 
 	samples = [];
-	s = e; % initialize with e fixed and others being 0
+	s = e; % initialize one sample
 
 	ne = (1 : n)(emask == 0); % nonevidence
 

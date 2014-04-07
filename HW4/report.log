@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.8)  2 APR 2014 01:47
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.11.8)  7 APR 2014 02:12
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -61,44 +61,43 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.sty
-Package: subfigure 2002/03/15 v2.1.5 subfigure package
-\subfigtopskip=\skip45
-\subfigcapskip=\skip46
-\subfigcaptopadj=\dimen105
-\subfigbottomskip=\skip47
-\subfigcapmargin=\dimen106
-\subfiglabelskip=\skip48
-\c@subfigure=\count89
-\c@lofdepth=\count90
-\c@subtable=\count91
-\c@lotdepth=\count92
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+Package: caption 2009/10/09 v3.1k Customizing captions (AR)
 
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
-(/usr/share/texmf-texlive/tex/latex/subfigure/subfigure.cfg)
-\subfig@top=\skip49
-\subfig@bottom=\skip50
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+\captionmargin=\dimen105
+\captionmargin@=\dimen106
+\captionwidth=\dimen107
+\caption@indent=\dimen108
+\caption@parindent=\dimen109
+\caption@hangindent=\dimen110
+)
+\c@ContinuedFloat=\count89
+)
+(/usr/share/texmf-texlive/tex/latex/caption/subcaption.sty
+Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
+\c@subfigure=\count90
+\c@subtable=\count91
 )
 (/usr/share/texmf-texlive/tex/latex/listings/listings.sty
-\lst@mode=\count93
+\lst@mode=\count92
 \lst@gtempboxa=\box26
 \lst@token=\toks15
-\lst@length=\count94
-\lst@currlwidth=\dimen107
-\lst@column=\count95
-\lst@pos=\count96
-\lst@lostspace=\dimen108
-\lst@width=\dimen109
-\lst@newlines=\count97
-\lst@lineno=\count98
-\lst@maxwidth=\dimen110
+\lst@length=\count93
+\lst@currlwidth=\dimen111
+\lst@column=\count94
+\lst@pos=\count95
+\lst@lostspace=\dimen112
+\lst@width=\dimen113
+\lst@newlines=\count96
+\lst@lineno=\count97
+\lst@maxwidth=\dimen114
 
 (/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count99
-\lst@skipnumbers=\count100
+\c@lstnumber=\count98
+\lst@skipnumbers=\count99
 \lst@framebox=\box27
 )
 (/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
@@ -112,7 +111,7 @@ nment
 
 (/usr/share/texmf-texlive/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count101
+\c@float@type=\count100
 \float@exts=\toks16
 \float@box=\box28
 \@float@everytoks=\toks17
@@ -122,7 +121,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \@float@every@algorithm=\toks18
-\c@algorithm=\count102
+\c@algorithm=\count101
 )
 (/usr/share/texmf-texlive/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
@@ -131,83 +130,147 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count103
-\c@ALG@rem=\count104
-\c@ALG@nested=\count105
-\ALG@tlm=\skip51
-\ALG@thistlm=\skip52
-\c@ALG@Lnr=\count106
-\c@ALG@blocknr=\count107
-\c@ALG@storecount=\count108
-\c@ALG@tmpcounter=\count109
-\ALG@tmplength=\skip53
+\c@ALG@line=\count102
+\c@ALG@rem=\count103
+\c@ALG@nested=\count104
+\ALG@tlm=\skip45
+\ALG@thistlm=\skip46
+\c@ALG@Lnr=\count105
+\c@ALG@blocknr=\count106
+\c@ALG@storecount=\count107
+\c@ALG@tmpcounter=\count108
+\ALG@tmplength=\skip47
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (./report.aux)
+) (./report.aux
+
+LaTeX Warning: Label `fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `fig:gull' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:gull' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
  (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count110
-\scratchdimen=\dimen111
+\scratchcounter=\count109
+\scratchdimen=\dimen115
 \scratchbox=\box30
-\nofMPsegments=\count111
-\nofMParguments=\count112
+\nofMPsegments=\count110
+\nofMParguments=\count111
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count113
-\MPscratchDim=\dimen112
-\MPnumerator=\count114
+\MPscratchCnt=\count112
+\MPscratchDim=\dimen116
+\MPnumerator=\count113
 \everyMPtoPDFconversion=\toks20
 )
-\c@lstlisting=\count115
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count114
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 15.
+(Font)              <12> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 15.
+(Font)              <8> on input line 16.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 15.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 15.
+(Font)              <6> on input line 16.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 16.
  (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 19.
- [1
+(Font)              <10.95> on input line 28.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./report.aux) ) 
+<ian1.png, id=1, 602.25pt x 501.875pt>
+File: ian1.png Graphic file (type png)
+ <use ian1.png>
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 41.
+
+<ian2.png, id=2, 602.25pt x 501.875pt>
+File: ian2.png Graphic file (type png)
+ <use ian2.png>
+<ian3.png, id=3, 602.25pt x 501.875pt>
+File: ian3.png Graphic file (type png)
+ <use ian3.png>
+<ian4.png, id=4, 602.25pt x 501.875pt>
+File: ian4.png Graphic file (type png)
+ <use ian4.png>
+<ian5.png, id=5, 602.25pt x 501.875pt>
+File: ian5.png Graphic file (type png)
+ <use ian5.png>
+<ian6.png, id=6, 602.25pt x 501.875pt>
+File: ian6.png Graphic file (type png)
+ <use ian6.png> [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./ian1.png (PNG copy)>
+ <./ian2.png (PNG copy)> <./ian3.png (PNG copy)> <./ian4.png (PNG copy)> <./ian
+5.png (PNG copy)> <./ian6.png (PNG copy)>] (./report.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3202 strings out of 495061
- 43749 string characters out of 1182621
- 97814 words of memory out of 3000000
- 6380 multiletter control sequences out of 15000+50000
- 8620 words of font info for 33 fonts, out of 3000000 for 9000
+ 4065 strings out of 495061
+ 59505 string characters out of 1182621
+ 119036 words of memory out of 3000000
+ 7232 multiletter control sequences out of 15000+50000
+ 8938 words of font info for 36 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 27i,6n,32p,252b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/publi
-c/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/
-texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmsy8.pfb>
-Output written on report.pdf (1 page, 87861 bytes).
+ 36i,7n,38p,252b,463s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/t
+exmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmsy8.pfb>
+Output written on report.pdf (2 pages, 224630 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
+ 59 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

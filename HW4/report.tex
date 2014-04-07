@@ -2,7 +2,8 @@
 \usepackage{latexsym}
 \usepackage{natbib}
 \usepackage{graphicx}
-\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{listings}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -14,20 +15,60 @@
 \begin{document}
 \maketitle
 
-\section{Introduction}
+\section{Sampling Methods}
+
+In this assignment, I implemented Rejection Sampling and Gibbs
+Sampling to generate samples for a Bayesian network. 
+
+For Rejection Sampling, the implementation is quite simple. Samples
+are generated ignoring the constraints of the evidence. Then, samples
+inconsistent with the evidence are dropped. In the remaining samples,
+proportion of samples consistent with the query is returned.
+
+For Gibbs Sampling, in each iteration, for node $x_i$, it is sampled
+from the following probability (revised from the textbook).
 
 \begin{equation}
 p(x_i|x_{\{j \not = i\}}) \propto \prod_k P(x_k|pa_k)
 \end{equation}
 
-% \begin{figure}
-% \centering
-% \includegraphics[]{test.png}
-% \caption{Reconstruction of digits. From left to right on each line,
-% there are original digits, digits constructed by first 100
-% eigenvectors, digits constructed by first 200 eigenvectors, and digits
-% constructed by first 600 eigenvectors. }
-% \label{fig:test}
-% \end{figure}
+\section{Experiments}
+
+\begin{figure}
+\centering
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=\textwidth]{ian1.png}
+	\caption{$P(X_0=1 | E_1) $}
+	\end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=\textwidth]{ian2.png}
+	\caption{$P(X_1=1 | E_1) $}
+\end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=\textwidth]{ian3.png}
+	\caption{$P(X_2=1 | E_1) $}
+\end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=\textwidth]{ian4.png}
+	\caption{$P(X_3=1 | E_1) $}
+\end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=\textwidth]{ian5.png}
+	\caption{$P(X_4=1 | E_1) $}
+\end{subfigure}
+\begin{subfigure}[b]{0.49\textwidth}
+	\includegraphics[width=\textwidth]{ian6.png}
+	\caption{$P(X_5=1 | E_1) $}
+\end{subfigure}
+\caption{Sampling process for each test case. $E_1$ denotes $(X_6 = 1,
+X_7 = 0, X_8 = 0)$.}
+\label{fig:lp}
+\end{figure}
+
+In this experiment, I used the data provided by Ian. The results
+generated are shown below.
+
+In Figure~\ref{fig:lp}, I show the learning process in each sampling
+algorithms, for each query data for the first envidence given.
 
 \end{document}

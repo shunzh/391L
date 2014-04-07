@@ -1,7 +1,8 @@
-function [p] = experiment(pa, cpts, qmask, q, emask, e)
-	results = []
+function [p] = experiment(pa, cpts, qmask, q, emask, e, name)
+	results = [];
+	maxIter = 1000;
 
-	iterations = 50 : 50 : 500;
+	iterations = 200 : 200 : maxIter;
 
 	for i = iterations
 		pg = gibbsSample(pa, cpts, qmask, q, emask, e, i, 200);
@@ -10,8 +11,15 @@ function [p] = experiment(pa, cpts, qmask, q, emask, e)
 		results = [results; [pg, pr]];
 	end
 
+	results
+
 	plot(iterations, results);
 	legend("Gibbs Sampling", "Rejection Sampling");
 	xlabel("Iterations");
-	ylabel("Probability (answer returned)");
+	ylabel("Probability");
+	axis([0 maxIter 0 1]);
+
+	print([name, '.png'], '-S600,500');
 end
+
+% experiment(pa, cpts, qmask(1,:), q(1,:), emask(1,:), e(1,:), "ian1")
