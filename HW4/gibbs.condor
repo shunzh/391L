@@ -1,0 +1,8 @@
+Universe = vanilla
+Executable = /usr/bin/octave
++ProjectDescription = "391HW"
+Error = err.$(Process)
+Log = condor.log
+
+Arguments = experimentGibbs.m
+Queue 1
