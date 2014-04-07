@@ -34,12 +34,6 @@ p(x_i|x_{\{j \not = i\}}) \propto \prod_k P(x_k|pa_k)
 
 \section{Experiments}
 
-In this experiment, I used the data provided by Ian. The running
-iterations for both are 1000. Note that for rejection sampling, the samples
-collected are less than 1000. For Gibbs sampling, the parameter $T =
-200$. The algorithm starts collect data after $T$ iterations. The
-results generated are shown below.
-
 \begin{figure}
 \centering
 \begin{subfigure}[b]{0.49\textwidth}
@@ -71,14 +65,19 @@ X_7 = 0, X_8 = 0)$.}
 \label{fig:lp}
 \end{figure}
 
+In this experiment, I used the data provided by Ian. The running
+iterations for both are 1000. Note for rejection sampling, the samples
+collected are less than 1000. For Gibbs sampling, the parameter $T =
+200$. The algorithm starts collect data after $T$ iteraions. The
+results generated are shown below.
+
 In Figure~\ref{fig:lp}, I show the learning process in each sampling
-algorithms, for each query data in the first evidence given.
+algorithms, for each query data for the first envidence given.
 
 \begin{samepage}
 The following is the numerical results. Each line corresponds to one
-evidence, from the first to the last evidence given in the
-\texttt{data.678} file. Each number in one line is the result of one
-query, from $X_0 = 1$ up to $X_5 = 1$.
+evidence. Each number is the result of one query. They are ordered as
+given.
 
 By rejection sampling,
 
