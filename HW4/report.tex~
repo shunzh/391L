@@ -65,22 +65,15 @@ X_7 = 0, X_8 = 0)$.}
 \label{fig:lp}
 \end{figure}
 
-In this experiment, I used the data provided by Ian. The running
-iterations for both are 1000. Note for rejection sampling, the samples
-collected are less than 1000. For Gibbs sampling, the parameter $T =
-200$. The algorithm starts collect data after $T$ iteraions. The
-results generated are shown below.
+In this experiment, I used the data provided by Ian. For Gibbs
+sampling, the parameter $T = 200$. The algorithm starts collect data
+after $T$ iteraions. The results generated are shown below.
 
 In Figure~\ref{fig:lp}, I show the learning process in each sampling
 algorithms, for each query data for the first envidence given.
 
-The following is the numerical results. Each line corresponds to one
-evidence. Each number is the result of one query. They are ordered as
-given.
+The following is the numerical results.
 
-By rejection sampling,
-
-\begin{samepage}
 \begin{verbatim}
    0.848837   0.538462   0.142857   0.638298   0.607143   0.750000
    0.795082   0.766129   0.132231   0.990566   0.393939   0.170213
@@ -93,14 +86,6 @@ By rejection sampling,
    0.773585   0.696203   0.109091   0.964912   0.731707   0.745098
    0.855263   0.533333   0.117155   0.519824   0.427928   0.836538
 \end{verbatim}
-\end{samepage}
-
-By Gibbs sampling,
-
-\begin{samepage}
-\begin{verbatim}
-\end{verbatim}
-\end{samepage}
 
 \section{Discussion}
 
