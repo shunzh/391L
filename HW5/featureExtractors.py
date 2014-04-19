@@ -10,6 +10,7 @@
 
 from game import Directions, Actions
 import util
+import math
 
 class FeatureExtractor:  
   def getFeatures(self, state, action):    
@@ -25,6 +26,29 @@ class IdentityExtractor(FeatureExtractor):
     feats = util.Counter()
     feats[(state,action)] = 1.0
     return feats
+
+class ObstacleExtractor(FeatureExtractor):
+  def getFeatures(self, state, action):
+  	x, y = state
+	dx, dy = Actions.directionToVector(action)
+	# distance to obstacle, on x and y
+	disx = x + dx - 1
+	disy = y + dx - 1
+	
+	feats = util.Counter()
+	feats['dis'] = math.sqrt(disx * disx + disy * disy)
+
+	return feats
+	
+class SidewalkExtractor(FeatureExtractor):
+  def getFeatures(self, state, action):
+  	x, y = state
+	dx, dy = Actions.directionToVector(action)
+
+	feats = util.Counter()
+	feats['x'] = x + dx
+	
+	return feats
 
 def closestFood(pos, food, walls):
   """

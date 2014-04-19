@@ -88,11 +88,16 @@ class Gridworld(mdp.MarkovDecisionProcess):
     return self.livingReward
         
   def getStartState(self):
+    startStates = []
     for x in range(self.grid.width):
       for y in range(self.grid.height):
         if self.grid[x][y] == 'S':
-          return (x, y)
-    raise 'Grid has no start state'
+          startStates.append((x, y))
+
+    if len(startStates) == 0:
+      raise 'Grid has no start state'
+    else:
+      return random.choice(startStates)  
     
   def isTerminal(self, state):
     """
@@ -297,7 +302,20 @@ def getMazeGrid():
           ['S',' ',' ',' ']]
   return Gridworld(grid)
 
+def getObstacleGrid():
+  grid = [['S','S','S','S','S'],
+          ['S',' ',' ',' ','S'],
+          ['S',' ', -1,' ','S'],
+          ['S',' ',' ',' ','S'],
+          ['S','S','S','S','S']]
+  return Gridworld(grid)
 
+def getSidewalkGrid():
+  grid = [[ 'S',' ', ' ', ' ', ' ', ' ', +1],
+          [ 'S',' ', ' ', ' ', ' ', ' ', +1],
+          [ 'S',' ', ' ', ' ', ' ', ' ', +1]]
+  return Gridworld(grid)
+ 
 
 def getUserAction(state, actionFunction):
   """
@@ -479,10 +497,18 @@ if __name__ == '__main__':
   elif opts.agent == 'Approximate':
     gridWorldEnv = GridworldEnvironment(mdp)
     actionFn = lambda state: mdp.getPossibleActions(state)
+    if opts.grid == 'ObstacleGrid':
+	  extractor = 'ObstacleExtractor'
+    elif opts.grid == 'SidewalkGrid':
+	  extractor = 'SidewalkExtractor'
+    else:
+	  extractor = 'IdentityExtractor'
+
     qLearnOpts = {'gamma': opts.discount, 
                   'alpha': opts.learningRate, 
                   'epsilon': opts.epsilon,
-                  'actionFn': actionFn}
+                  'actionFn': actionFn,
+                  'extractor': extractor}
     a = qlearningAgents.ApproximateQAgent(**qLearnOpts)
   elif opts.agent == 'random':
     # # No reason to use the random agent without episodes
