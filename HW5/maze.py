@@ -23,6 +23,37 @@ class Maze():
 		"""
 			Return the effect of taking an action
 		"""
+		dn = 0; dm = 0
+		newstate = [state[0], state[1]]
+		
+		# effect of action
+		if action == 0:
+			dm = -1
+		elif action == 1:
+			dn = 1
+		elif action == 2:
+			dm = 1
+		elif action == 3:
+			dn = -1
+		else:
+			assert False
+
+		newstate[0] += dm
+		newstate[1] += dn
+
+		# bump back
+		if newstate[0] < 0:
+			newstate[0] = 0
+		elif newstate[0] > self.height - 1:
+			newstate[0] = self.height - 1
+
+		if newstate[1] < 0:
+			newstate[1] = 0
+		elif newstate[1] > self.width - 1:
+			newstate[1] = self.width - 1
+
+		return newstate
+
 
 class ObstacleMaze(Maze):
 	"""
@@ -38,6 +69,13 @@ class ObstacleMaze(Maze):
 	
 	def getState(self, state):
 		return (state[1] - 2, state[2] - 2)
+
+	@staticmethod
+	def getLegalActions(state):
+		if state[1] == 0 and state[2] == 0:
+			return None
+		else:
+			return range(4)
 
 class SideWayMaze(Maze):
 	"""
@@ -57,3 +95,10 @@ class SideWayMaze(Maze):
 	
 	def getState(self, state):
 		return state[2]
+
+	@staticmethod
+	def getLegalActions(state):
+		if state[2] == n - 1:
+			return None
+		else:
+			return range(4)
