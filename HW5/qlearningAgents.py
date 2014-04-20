@@ -190,19 +190,19 @@ class ApproximateQAgent(PacmanQAgent):
     """
     "*** YOUR CODE HERE ***"
 	# debug
-    print self.weights
+    #print self.weights
 
     correction = (reward + self.gamma * self.getValue(nextState)) - self.getQValue(state, action)
-    print state, correction
-    print
+    #print state
+    #print reward, ' + ', self.gamma * self.getValue(nextState), ' - ', self.getQValue(state, action), ' = ', correction
 
     for feature, value in self.featExtractor.getFeatures(state, action).items():
+      #print 'UPDATE: ', self.alpha, ' * ', correction, ' * ', value
       self.weights[feature] += self.alpha * correction * value
-    #util.raiseNotDefined()
+    #print
     
   def final(self, state):
 	"""
 		called at the end of the game
 	"""
-	with open('agent.pkl', 'wb') as output:
-		pickle.dump(self.weights, output)
+	pass

@@ -40,12 +40,19 @@ class Environment:
     """
     abstract
 
+  def isFinal(self):
+    """
+	  Check whether this is the final state
+    """
+    abstract
+
   def isTerminal(self):
     """
       Has the enviornment entered a terminal
       state? This means there are no successors
+	  
+	  DUMMY -Shun
     """
     state = self.getCurrentState()
     actions = self.getPossibleActions(state)
     return len(actions) == 0
-    

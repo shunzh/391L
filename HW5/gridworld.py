@@ -202,6 +202,9 @@ class GridworldEnvironment(environment.Environment):
   def reset(self):
     self.state = self.gridWorld.getStartState()
 
+  def isFinal(self):
+    return self.gridWorld.isFinal(self.state)
+
 class Grid:
   """
   A 2-dimensional array of immutables backed by a list of lists.  Data is accessed
@@ -259,7 +262,7 @@ def makeGrid(gridString):
       grid[x][y] = el
   return grid    
              
-# test this!
+# TODO test this!
 def terminateIfInt(grid):
 	return lambda state : type(grid[state[0]][state[1]]) == int
 
@@ -309,7 +312,8 @@ def getObstacleGrid():
           [' ','S', -1,'S',' '],
           [' ','S','S','S',' '],
           [' ',' ',' ',' ',' ']]
-  isFinal = lambda state : state[0] == 2 and state[1] == 2 
+  #isFinal = lambda state : state[0] == 2 and state[1] == 2 
+  isFinal = lambda state : False
 
 #   grid = [['S','S','S'],
 #           ['S', -1,'S'],
@@ -368,9 +372,11 @@ def runEpisode(agent, environment, discount, decision, display, message, pause, 
     # END IF IN A TERMINAL STATE
     actions = environment.getPossibleActions(state)
     runs -= 1
-    if len(actions) == 0 or runs == 0:
+    if environment.isFinal() or runs == 0:
       message("EPISODE "+str(episode)+" COMPLETE: RETURN WAS "+str(returns)+"\n")
       agent.final(state)
+      #FIXME
+      print agent.weights
       return returns
     
     # GET ACTION (USUALLY FROM AGENT)
@@ -523,6 +529,8 @@ if __name__ == '__main__':
                   'actionFn': actionFn,
                   'extractor': extractor}
     a = qlearningAgents.ApproximateQAgent(**qLearnOpts)
+  elif opts.agent == 'Modular':
+    pass
   elif opts.agent == 'random':
     # # No reason to use the random agent without episodes
     if opts.episodes == 0:

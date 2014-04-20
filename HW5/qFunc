@@ -1,0 +1,6 @@
+#obstacle
+{'bias': -0.20931133310480204, 'dis': 0.06742681562641269}
+epsilon = 0.3
+gamma = 0.9
+
+#sidewalk

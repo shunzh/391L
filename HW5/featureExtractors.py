@@ -45,7 +45,6 @@ class ObstacleExtractor(FeatureExtractor):
 class SidewalkExtractor(FeatureExtractor):
   def getFeatures(self, state, action):
 	feats = util.Counter()
-	feats['bias'] = 1
 
   	x, y = state
 	dx, dy = Actions.directionToVector(action)
