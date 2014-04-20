@@ -533,7 +533,7 @@ if __name__ == '__main__':
                   'alpha': opts.learningRate, 
                   'epsilon': opts.epsilon,
                   'actionFn': actionFn,
-                  'qFuncs': modularAgents.getQFuncs()}
+                  'qFuncs': modularAgents.getQFuncs(mdp)}
     a = modularAgents.ModularAgent(**qLearnOpts)
   elif opts.agent == 'random':
     # # No reason to use the random agent without episodes
