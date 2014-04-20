@@ -17,3 +17,7 @@ class ModularAgent(ApproximateQAgent):
 
 		# FIXME
 		return sum(qValues)
+
+def getQFuncs():
+	obstacle = {'bias': -0.20931133310480204, 'dis': 0.06742681562641269}
+	sidewalk = {'x': 0.06250000371801567}

@@ -4,3 +4,6 @@ epsilon = 0.3
 gamma = 0.9
 
 #sidewalk
+{'x': 0.06250000371801567}
+epsilon = 0.3
+gamma = 0.5

@@ -375,8 +375,6 @@ def runEpisode(agent, environment, discount, decision, display, message, pause, 
     if environment.isFinal() or runs == 0:
       message("EPISODE "+str(episode)+" COMPLETE: RETURN WAS "+str(returns)+"\n")
       agent.final(state)
-      #FIXME
-      print agent.weights
       return returns
     
     # GET ACTION (USUALLY FROM AGENT)
@@ -530,7 +528,13 @@ if __name__ == '__main__':
                   'extractor': extractor}
     a = qlearningAgents.ApproximateQAgent(**qLearnOpts)
   elif opts.agent == 'Modular':
-    pass
+    import modularAgents
+    qLearnOpts = {'gamma': opts.discount, 
+                  'alpha': opts.learningRate, 
+                  'epsilon': opts.epsilon,
+                  'actionFn': actionFn,
+                  'qFuncs': modularAgents.getQFuncs()}
+    a = modularAgents.ModularAgent(**qLearnOpts)
   elif opts.agent == 'random':
     # # No reason to use the random agent without episodes
     if opts.episodes == 0:
