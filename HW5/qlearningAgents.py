@@ -191,9 +191,6 @@ class ApproximateQAgent(PacmanQAgent):
 	# debug
     print self.weights
 
-    if nextState == 'TERMINAL_STATE':
-	  return
-
     correction = (reward + self.gamma * self.getValue(nextState)) - self.getQValue(state, action)
     print state, correction
     print

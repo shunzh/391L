@@ -52,12 +52,6 @@ class Gridworld(mdp.MarkovDecisionProcess):
     that "exit" states transition to the terminal
     state under the special action "done".
     """
-    if self.isTerminal(state):
-      return ()
-	
-    if self.isFinal(state):
-      return ('exit',)
-
     return ('north','west','south','east')
     
   def getStates(self):
@@ -65,7 +59,7 @@ class Gridworld(mdp.MarkovDecisionProcess):
     Return list of all states.
     """
     # The true terminal state.
-    states = [self.grid.terminalState]
+    states = []
     for x in range(self.grid.width):
       for y in range(self.grid.height):
         if self.grid[x][y] != '#':
@@ -108,8 +102,11 @@ class Gridworld(mdp.MarkovDecisionProcess):
     a single action "exit" which leads to the true terminal state.
     This convention is to make the grids line up with the examples
     in the R+N textbook.
+
+	Asume there the task is continous, not episodic! -Shun
     """
-    return state == self.grid.terminalState
+    # return state == self.grid.terminalState
+    return False
                    
   def getTransitionStatesAndProbs(self, state, action):
     """
@@ -358,6 +355,9 @@ def runEpisode(agent, environment, discount, decision, display, message, pause, 
   environment.reset()
   if 'startEpisode' in dir(agent): agent.startEpisode()
   message("BEGINNING EPISODE: "+str(episode)+"\n")
+
+  runs = 50
+
   while True:
 
     # DISPLAY CURRENT STATE
@@ -367,7 +367,9 @@ def runEpisode(agent, environment, discount, decision, display, message, pause, 
     
     # END IF IN A TERMINAL STATE
     actions = environment.getPossibleActions(state)
-    if len(actions) == 0:
+    # if len(actions) == 0:
+    runs -= 1
+    if runs == 0:
       message("EPISODE "+str(episode)+" COMPLETE: RETURN WAS "+str(returns)+"\n")
       return returns
     

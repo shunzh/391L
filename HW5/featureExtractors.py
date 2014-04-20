@@ -32,10 +32,6 @@ class ObstacleExtractor(FeatureExtractor):
 	feats = util.Counter()
 	feats['bias'] = 1
 
-	if action == 'exit':
-		feats['dis'] = 0
-		return feats
-
   	x, y = state
 	dx, dy = Actions.directionToVector(action)
 	# distance to obstacle, on x and y
@@ -50,10 +46,6 @@ class SidewalkExtractor(FeatureExtractor):
   def getFeatures(self, state, action):
 	feats = util.Counter()
 	feats['bias'] = 1
-
-	if action == 'exit':
-		feats['x'] = 4
-		return feats
 
   	x, y = state
 	dx, dy = Actions.directionToVector(action)
