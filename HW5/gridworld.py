@@ -312,7 +312,8 @@ def getObstacleGrid():
           [' ','S', -1,'S',' '],
           [' ','S','S','S',' '],
           [' ',' ',' ',' ',' ']]
-  isFinal = lambda state : state[0] | state[1] == 4 or state[0] | state[1] == 0 
+  isFinal = lambda state : state[0] == 2 and state[1] == 2 
+
 #   grid = [['S','S','S'],
 #           ['S', -1,'S'],
 #           ['S','S','S']]
