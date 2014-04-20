@@ -77,7 +77,9 @@ class QLearningAgent(ReinforcementAgent):
     actions = self.getLegalActions(state)
     if actions: 
       q_value_func = lambda action: self.getQValue(state, action)
-      return max(actions, key=q_value_func)
+      maxQValue = max([q_value_func(action) for action in actions])
+      optActions = [action for action in actions if q_value_func(action) == maxQValue]
+      return random.choice(optActions)
     else:
       return None
 
@@ -200,4 +202,4 @@ class ApproximateQAgent(PacmanQAgent):
     if self.episodesSoFar == self.numTraining:
       # you might want to print your weights here for debugging
       "*** YOUR CODE HERE ***"
-      pass
+      print self.weights

@@ -274,7 +274,12 @@ class Actions:
                  Directions.SOUTH: (0, -1),
                  Directions.EAST:  (1, 0),
                  Directions.WEST:  (-1, 0),
-                 Directions.STOP:  (0, 0)}
+                 Directions.STOP:  (0, 0),
+
+                 'north': (0, 1),
+                 'south': (0, -1),
+                 'east':  (1, 0),
+                 'west':  (-1, 0)}
 
   _directionsAsList = _directions.items()
 

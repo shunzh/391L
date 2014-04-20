@@ -17,14 +17,15 @@ class Gridworld(mdp.MarkovDecisionProcess):
   """
     Gridworld
   """
-  def __init__(self, grid):
+  def __init__(self, grid, isFinal):
     # layout
     if type(grid) == type([]): grid = makeGrid(grid)
     self.grid = grid
     
     # parameters
     self.livingReward = 0.0
-    self.noise = 0.2
+    self.noise = 0.0
+    self.isFinal = isFinal
         
   def setLivingReward(self, reward):
     """
@@ -51,11 +52,12 @@ class Gridworld(mdp.MarkovDecisionProcess):
     that "exit" states transition to the terminal
     state under the special action "done".
     """
-    if state == self.grid.terminalState:
+    if self.isTerminal(state):
       return ()
-    x,y = state
-    if type(self.grid[x][y]) == int:
+	
+    if self.isFinal(state):
       return ('exit',)
+
     return ('north','west','south','east')
     
   def getStates(self):
@@ -108,7 +110,6 @@ class Gridworld(mdp.MarkovDecisionProcess):
     in the R+N textbook.
     """
     return state == self.grid.terminalState
-        
                    
   def getTransitionStatesAndProbs(self, state, action):
     """
@@ -262,17 +263,21 @@ def makeGrid(gridString):
       grid[x][y] = el
   return grid    
              
+# test this!
+def terminateIfInt(grid):
+	return lambda state : type(grid[state[0]][state[1]]) == int
+
 def getCliffGrid():
   grid = [[' ',' ',' ',' ',' '],
           ['S',' ',' ',' ',10],
           [-100,-100, -100, -100, -100]]
-  return Gridworld(makeGrid(grid))
+  return Gridworld(makeGrid(grid), terminateIfInt(grid))
     
 def getCliffGrid2():
   grid = [[' ',' ',' ',' ',' '],
           [8,'S',' ',' ',10],
           [-100,-100, -100, -100, -100]]
-  return Gridworld(grid)
+  return Gridworld(grid,  terminateIfInt(grid))
     
 def getDiscountGrid():
   grid = [[' ',' ',' ',' ',' '],
@@ -280,19 +285,19 @@ def getDiscountGrid():
           [' ','#', 1,'#', 10],
           ['S',' ',' ',' ',' '],
           [-10,-10, -10, -10, -10]]
-  return Gridworld(grid)
+  return Gridworld(grid,  terminateIfInt(grid))
    
 def getBridgeGrid():
   grid = [[ '#',-100, -100, -100, -100, -100, '#'],
           [   1, 'S',  ' ',  ' ',  ' ',  ' ',  10],
           [ '#',-100, -100, -100, -100, -100, '#']]
-  return Gridworld(grid)
+  return Gridworld(grid,  terminateIfInt(grid))
 
 def getBookGrid():
   grid = [[' ',' ',' ',+1],
           [' ','#',' ',-1],
           ['S',' ',' ',' ']]
-  return Gridworld(grid)
+  return Gridworld(grid, None)
 
 def getMazeGrid():
   grid = [[' ',' ',' ',+1],
@@ -300,21 +305,27 @@ def getMazeGrid():
           [' ','#',' ',' '],
           [' ','#','#',' '],
           ['S',' ',' ',' ']]
-  return Gridworld(grid)
+  return Gridworld(grid, None)
 
 def getObstacleGrid():
-  grid = [['S','S','S','S','S'],
-          ['S',' ',' ',' ','S'],
-          ['S',' ', -1,' ','S'],
-          ['S',' ',' ',' ','S'],
-          ['S','S','S','S','S']]
-  return Gridworld(grid)
+  grid = [[' ',' ',' ',' ',' '],
+          [' ','S','S','S',' '],
+          [' ','S', -1,'S',' '],
+          [' ','S','S','S',' '],
+          [' ',' ',' ',' ',' ']]
+  isFinal = lambda state : state[0] == 2 and state[1] == 2
+#   grid = [['S','S','S'],
+#           ['S', -1,'S'],
+#           ['S','S','S']]
+#   isFinal = lambda state : state[0] == 1 and state[1] == 1
+  return Gridworld(grid, isFinal)
 
 def getSidewalkGrid():
   grid = [[ 'S',' ', ' ', ' ', ' ', ' ', +1],
           [ 'S',' ', ' ', ' ', ' ', ' ', +1],
           [ 'S',' ', ' ', ' ', ' ', ' ', +1]]
-  return Gridworld(grid)
+  isFinal = lambda state : state[0] == 6
+  return Gridworld(grid, isFinal)
  
 
 def getUserAction(state, actionFunction):
