@@ -11,6 +11,7 @@ from learningAgents import ReinforcementAgent
 from featureExtractors import *
 
 import random,util,math
+import pickle
           
 class QLearningAgent(ReinforcementAgent):
   """
@@ -200,11 +201,8 @@ class ApproximateQAgent(PacmanQAgent):
     #util.raiseNotDefined()
     
   def final(self, state):
-    "Called at the end of each game."
-    # call the super-class final method
-    PacmanQAgent.final(self, state)
-    
-    # did we finish training?
-    if self.episodesSoFar == self.numTraining:
-      # you might want to print your weights here for debugging
-      "*** YOUR CODE HERE ***"
+	"""
+		called at the end of the game
+	"""
+	with open('agent.pkl', 'wb') as output:
+		pickle.dump(self.weights, output)
