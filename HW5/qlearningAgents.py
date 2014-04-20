@@ -188,7 +188,16 @@ class ApproximateQAgent(PacmanQAgent):
        Should update your weights based on transition  
     """
     "*** YOUR CODE HERE ***"
+	# debug
+    print self.weights
+
+    if nextState == 'TERMINAL_STATE':
+	  return
+
     correction = (reward + self.gamma * self.getValue(nextState)) - self.getQValue(state, action)
+    print state, correction
+    print
+
     for feature, value in self.featExtractor.getFeatures(state, action).items():
       self.weights[feature] += self.alpha * correction * value
     #util.raiseNotDefined()
@@ -202,4 +211,3 @@ class ApproximateQAgent(PacmanQAgent):
     if self.episodesSoFar == self.numTraining:
       # you might want to print your weights here for debugging
       "*** YOUR CODE HERE ***"
-      print self.weights

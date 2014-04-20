@@ -30,9 +30,10 @@ class IdentityExtractor(FeatureExtractor):
 class ObstacleExtractor(FeatureExtractor):
   def getFeatures(self, state, action):
 	feats = util.Counter()
+	feats['bias'] = 1
 
-  	if action == 'exit':
-		feats['dis'] = -1
+	if action == 'exit':
+		feats['dis'] = 0
 		return feats
 
   	x, y = state
@@ -40,17 +41,18 @@ class ObstacleExtractor(FeatureExtractor):
 	# distance to obstacle, on x and y
 	disx = x + dx - 2
 	disy = y + dy - 2
-	
-	feats['dis'] = math.sqrt(disx * disx + disy * disy)
 
+	feats['dis'] = math.sqrt(disx*disx + disy*disy)
+	
 	return feats
 	
 class SidewalkExtractor(FeatureExtractor):
   def getFeatures(self, state, action):
 	feats = util.Counter()
+	feats['bias'] = 1
 
-  	if action == 'exit':
-		feats['x'] = 8
+	if action == 'exit':
+		feats['x'] = 4
 		return feats
 
   	x, y = state
