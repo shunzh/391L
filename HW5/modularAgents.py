@@ -6,18 +6,12 @@ import math
 class ModularAgent(ApproximateQAgent):
 	def __init__(self, **args):
 		ApproximateQAgent.__init__(self, **args)
-		qvalues = util.Counter()
  
 	def getQValue(self, state, action, idx = None):
 		"""
-			There isn't a way for me to tell you the qvalue of THIS action,
-			because it needs to be normalized over all the actions.
-			So, I keep a table, qvalues. This function will just do a lookup.
-			getPolicy actually fill up the table.
+			Get Q value by consulting each module
+			If idx indicated, then only return qvalue for that qFunc
 		"""
-		return self.qvalues[(state, action)]
-
-	def getQFuncValue(self, state, action, idx = None):
 		if idx != None:
 			return self.qFuncs[idx](state, action)
 		else:
@@ -35,8 +29,10 @@ class ModularAgent(ApproximateQAgent):
 	
 	def getPolicy(self, state):
 		"""
-			using proportion of exp(QValue)
+			Can toggle between using QValue directly (traditional way)
+			or by proportion of exp(QValue)
 		"""
+		#return ApproximateQAgent.getPolicy(self, state)
 		return self.getGibbsPolicy(state)
 	
 	def getGibbsPolicy(self, state):
@@ -56,9 +52,6 @@ class ModularAgent(ApproximateQAgent):
 
 			w = [0.5, 0.5]
 			values = [sum([vMat[i][j] for i in range(len(self.qFuncs))]) for j in range(len(actions))]
-			for i in range(len(actions)):
-				self.qvalues[(state, actions[i])] = values[i]
-
 			return actions[values.index(max(values))]
 		else:
 			return None
