@@ -1,32 +1,28 @@
 from qlearningAgents import ApproximateQAgent
 from game import Actions
+import util
 
 import math
 
 class ModularAgent(ApproximateQAgent):
 	def __init__(self, **args):
 		ApproximateQAgent.__init__(self, **args)
+
+		self.qTable = util.Counter()
  
-	def getQValue(self, state, action):
+	def getQValue(self, state, action, idx = None):
 		"""
-			Get Q value by consulting each module and normalize
+			Get Q value by consulting each module
+			If idx indicated, then only return qvalue for that qFunc
 		"""
-		#FIXME inefficient implementation, convenient for calling by the graphics
+		if idx != None:
+			return self.qFuncs[idx](state, action)
+		else:
+			qValues = []
+			for qFunc in self.qFuncs:
+				qValues.append(qFunc(state, action))
 
-		actions = self.getLegalActions(state)
-		if actions: 
-			vMat = []
-			for idx in range(len(self.qFuncs)):
-				qFunc = lambda action: self.qFuncs[idx](state, action)
-				# list of exp^q
-				exps = [math.exp(qFunc(action)) for action in actions]
-				# Normalize
-				sumExps = sum(exps)
-				vMat.append([exp / sumExps for exp in exps])
-
-			values = [sum([vMat[i][j] for i in range(len(self.qFuncs))]) for j in range(len(actions))]
-			idx = actions.index(action)
-			return values[idx]
+			return 0.6 * qValues[0] + 0.4 * qValues[1]
 	
 	def setQFuncs(self, qFuncs):
 		"""
@@ -34,6 +30,38 @@ class ModularAgent(ApproximateQAgent):
 		"""
 		self.qFuncs = qFuncs
 	
+	def getPolicy(self, state):
+		"""
+			Can toggle between using QValue directly (traditional way)
+			or by proportion of exp(QValue)
+		"""
+		#return ApproximateQAgent.getPolicy(self, state)
+		return self.getGibbsPolicy(state)
+	
+	def getGibbsPolicy(self, state):
+		"""
+			Rather than using QValue, use proportion of exp(QValue)
+		"""
+		actions = self.getLegalActions(state)
+		if actions: 
+			vMat = []
+			for idx in range(len(self.qFuncs)):
+				qFunc = lambda action: self.getQValue(state, action, idx)
+				# list of exp^q
+				exps = [math.exp(qFunc(action)) for action in actions]
+				# Normalize
+				sumExps = sum(exps)
+				vMat.append([exp / sumExps for exp in exps])
+
+			w = [0.5, 0.5]
+			values = [sum([vMat[i][j] for i in range(len(self.qFuncs))]) for j in range(len(actions))]
+			for i in range(len(actions)):
+				self.qTable[(state, actions[i])] = values[i]
+
+			return actions[values.index(max(values))]
+		else:
+			return None
+
 
 def getObsAvoidFuncs(mdp):
 	"""
