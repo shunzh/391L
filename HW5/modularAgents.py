@@ -7,19 +7,26 @@ class ModularAgent(ApproximateQAgent):
 	def __init__(self, **args):
 		ApproximateQAgent.__init__(self, **args)
  
-	def getQValue(self, state, action, idx = None):
+	def getQValue(self, state, action):
 		"""
-			Get Q value by consulting each module
-			If idx indicated, then only return qvalue for that qFunc
+			Get Q value by consulting each module and normalize
 		"""
-		if idx != None:
-			return self.qFuncs[idx](state, action)
-		else:
-			qValues = []
-			for qFunc in self.qFuncs:
-				qValues.append(qFunc(state, action))
+		#FIXME inefficient implementation, convenient for calling by the graphics
 
-			return 0.6 * qValues[0] + 0.4 * qValues[1]
+		actions = self.getLegalActions(state)
+		if actions: 
+			vMat = []
+			for idx in range(len(self.qFuncs)):
+				qFunc = lambda action: self.qFuncs[idx](state, action)
+				# list of exp^q
+				exps = [math.exp(qFunc(action)) for action in actions]
+				# Normalize
+				sumExps = sum(exps)
+				vMat.append([exp / sumExps for exp in exps])
+
+			values = [sum([vMat[i][j] for i in range(len(self.qFuncs))]) for j in range(len(actions))]
+			idx = actions.index(action)
+			return values[idx]
 	
 	def setQFuncs(self, qFuncs):
 		"""
@@ -27,35 +34,6 @@ class ModularAgent(ApproximateQAgent):
 		"""
 		self.qFuncs = qFuncs
 	
-	def getPolicy(self, state):
-		"""
-			Can toggle between using QValue directly (traditional way)
-			or by proportion of exp(QValue)
-		"""
-		#return ApproximateQAgent.getPolicy(self, state)
-		return self.getGibbsPolicy(state)
-	
-	def getGibbsPolicy(self, state):
-		"""
-			Rather than using QValue, use proportion of exp(QValue)
-		"""
-		actions = self.getLegalActions(state)
-		if actions: 
-			vMat = []
-			for idx in range(len(self.qFuncs)):
-				qFunc = lambda action: self.getQValue(state, action, idx)
-				# list of exp^q
-				exps = [math.exp(qFunc(action)) for action in actions]
-				# Normalize
-				sumExps = sum(exps)
-				vMat.append([exp / sumExps for exp in exps])
-
-			w = [0.5, 0.5]
-			values = [sum([vMat[i][j] for i in range(len(self.qFuncs))]) for j in range(len(actions))]
-			return actions[values.index(max(values))]
-		else:
-			return None
-
 
 def getObsAvoidFuncs(mdp):
 	"""
