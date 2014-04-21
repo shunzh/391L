@@ -13,7 +13,7 @@ class ModularAgent(ApproximateQAgent):
 			If idx indicated, then only return qvalue for that qFunc
 		"""
 		if idx != None:
-			return qFuncs[idx](state, action)
+			return self.qFuncs[idx](state, action)
 		else:
 			qValues = []
 			for qFunc in self.qFuncs:
@@ -33,28 +33,25 @@ class ModularAgent(ApproximateQAgent):
 			or by proportion of exp(QValue)
 		"""
 		#return ApproximateQAgent.getPolicy(self, state)
-		return self.getPolicyNormalizeWalk(state)
+		return self.getGibbsPolicy(state)
 	
-	def getPolicyNormalizeWalk(self, state):
+	def getGibbsPolicy(self, state):
 		"""
 			Rather than using QValue, use proportion of exp(QValue)
 		"""
 		actions = self.getLegalActions(state)
 		if actions: 
-			# for walk
-			qWalk = lambda action: self.getQValue(state, action, 0)
-			# list of exp^q
-			exps = [math.exp(qWalk(action)) for action in actions]
-			# Normalize
-			sumExps = sum(exps)
-			walkValues = [exp / sumExps for exp in exps]
+			vMat = []
+			for idx in range(len(self.qFuncs)):
+				qFunc = lambda action: self.getQValue(state, action, idx)
+				# list of exp^q
+				exps = [math.exp(qFunc(action)) for action in actions]
+				# Normalize
+				sumExps = sum(exps)
+				vMat.append([exp / sumExps for exp in exps])
 
-			# for walk
-			qObstacle = lambda action: self.getQValue(state, action, 0)
-			obstacleValues = [math.exp(qWalk(action)) for action in actions]
-
-			# hybird
-			values = [0.5 * walkValues[i] + 0.5 * obstacleValues[i] for i in range(size(actions))]
+			w = [0.5, 0.5]
+			values = [sum([vMat[i][j] for i in range(len(self.qFuncs))]) for j in range(len(actions))]
 			return actions[values.index(max(values))]
 		else:
 			return None

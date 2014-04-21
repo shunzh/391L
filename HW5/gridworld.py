@@ -329,9 +329,9 @@ def getSidewalkGrid():
   return Gridworld(grid, isFinal)
 
 def getWalkAvoidGrid():
-  grid = [[ 'S',' ', ' ', ' ', ' ', ' ', +1],
+  grid = [[ 'S',' ', ' ', ' ',  -1, ' ', +1],
           [ 'S',' ',  -1, ' ', ' ', ' ', +1],
-          [ 'S',' ', ' ', ' ',  -1, ' ', +1]]
+          [ 'S',' ',  -1, ' ',  -1, ' ', +1]]
   isFinal = lambda state : state[0] == 6
   return Gridworld(grid, isFinal)
  
