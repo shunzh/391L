@@ -123,7 +123,6 @@ class QLearningAgent(ReinforcementAgent):
     new_qvalue = (1 - self.alpha) * self.getQValue(state, action) + self.alpha * sample 
     self.values[state, action] = new_qvalue 
 
-
 class PacmanQAgent(QLearningAgent):
   "Exactly the same as QLearningAgent, but with different default parameters"
   
