@@ -10,19 +10,19 @@ class ModularAgent(ApproximateQAgent):
 
 		self.qTable = util.Counter()
  
-	def getQValue(self, state, action, idx = None):
+	def getQValue(self, state, action):
 		"""
 			Get Q value by consulting each module
 			If idx indicated, then only return qvalue for that qFunc
 		"""
-		if idx != None:
-			return self.qFuncs[idx](state, action)
-		else:
-			qValues = []
-			for qFunc in self.qFuncs:
-				qValues.append(qFunc(state, action))
+		"""
+		qValues = []
+		for qFunc in self.qFuncs:
+			qValues.append(qFunc(state, action))
 
-			return 0.6 * qValues[0] + 0.4 * qValues[1]
+		return 0.6 * qValues[0] + 0.4 * qValues[1]
+		"""
+		return self.qTable[(state, action)]
 	
 	def setQFuncs(self, qFuncs):
 		"""
@@ -46,15 +46,15 @@ class ModularAgent(ApproximateQAgent):
 		if actions: 
 			vMat = []
 			for idx in range(len(self.qFuncs)):
-				qFunc = lambda action: self.getQValue(state, action, idx)
+				qFunc = lambda action: self.qFuncs[idx](state, action)
 				# list of exp^q
 				exps = [math.exp(qFunc(action)) for action in actions]
 				# Normalize
 				sumExps = sum(exps)
 				vMat.append([exp / sumExps for exp in exps])
 
-			w = [0.5, 0.5]
-			values = [sum([vMat[i][j] for i in range(len(self.qFuncs))]) for j in range(len(actions))]
+			values = [vMat[0][j] + vMat[1][j] for j in range(len(actions))]
+			print values
 			for i in range(len(actions)):
 				self.qTable[(state, actions[i])] = values[i]
 
