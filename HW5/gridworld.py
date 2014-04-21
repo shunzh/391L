@@ -327,6 +327,13 @@ def getSidewalkGrid():
           [ 'S',' ', ' ', ' ', +1]]
   isFinal = lambda state : state[0] == 4
   return Gridworld(grid, isFinal)
+
+def getWalkAvoidGrid():
+  grid = [[ 'S',' ', ' ', ' ', ' ', ' ', +1],
+          [ 'S',' ',  -1, ' ', ' ', ' ', +1],
+          [ 'S',' ', ' ', ' ',  -1, ' ', +1]]
+  isFinal = lambda state : state[0] == 6
+  return Gridworld(grid, isFinal)
  
 
 def getUserAction(state, actionFunction):
@@ -529,12 +536,14 @@ if __name__ == '__main__':
     a = qlearningAgents.ApproximateQAgent(**qLearnOpts)
   elif opts.agent == 'Modular':
     import modularAgents
+    gridWorldEnv = GridworldEnvironment(mdp)
+    actionFn = lambda state: mdp.getPossibleActions(state)
     qLearnOpts = {'gamma': opts.discount, 
                   'alpha': opts.learningRate, 
                   'epsilon': opts.epsilon,
-                  'actionFn': actionFn,
-                  'qFuncs': modularAgents.getQFuncs(mdp)}
+                  'actionFn': actionFn}
     a = modularAgents.ModularAgent(**qLearnOpts)
+    a.setQFuncs(modularAgents.getObsAvoidFuncs(mdp))
   elif opts.agent == 'random':
     # # No reason to use the random agent without episodes
     if opts.episodes == 0:
@@ -582,8 +591,7 @@ if __name__ == '__main__':
     else:
       if opts.agent == 'random': displayCallback = lambda state: display.displayValues(a, state, "CURRENT VALUES")
       if opts.agent == 'value': displayCallback = lambda state: display.displayValues(a, state, "CURRENT VALUES")
-      if opts.agent == 'q': displayCallback = lambda state: display.displayQValues(a, state, "CURRENT Q-VALUES")
-      if opts.agent == 'Approximate': displayCallback = lambda state: display.displayQValues(a, state, "CURRENT Q-VALUES")
+      if opts.agent == 'q' or opts.agent == 'Approximate' or opts.agent == 'Modular': displayCallback = lambda state: display.displayQValues(a, state, "CURRENT Q-VALUES")
 
   messageCallback = lambda x: printString(x)
   if opts.quiet:
@@ -615,7 +623,7 @@ if __name__ == '__main__':
     print
     
   # DISPLAY POST-LEARNING VALUES / Q-VALUES
-  if opts.agent == 'q' or opts.agent == 'Approximate' and not opts.manual:
+  if opts.agent == 'q' or opts.agent == 'Approximate' or opts.agent == 'Modular' and not opts.manual:
     display.displayQValues(a, message = "Q-VALUES AFTER "+str(opts.episodes)+" EPISODES")
     display.pause()
     display.displayValues(a, message = "VALUES AFTER "+str(opts.episodes)+" EPISODES")

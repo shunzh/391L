@@ -1,29 +1,32 @@
 from qlearningAgents import ApproximateQAgent 
+from game import Actions
+
+import math
 
 class ModularAgent(ApproximateQAgent):
 	def __init__(self, **args):
 		ApproximateQAgent.__init__(self, **args)
-
-		# a set of q functions
-		self.qFuncs = args['qfunc']
  
 	def getQValue(self, state, action):
 		"""
 			Get Q value by consulting each module
 		"""
-		qValues = []
-		for qFunc in self.qFuncs:
-			qValues.append(qFunc(state, action))
+		qValues = self.qFuncs(state, action)
 
-		# FIXME
-		return sum(qValues)
+		return 0.6 * qValues[0] + 0.4 * qValues[1]
+	
+	def setQFuncs(self, qFuncs):
+		"""
+			Must set QFuncs here. getQValue will use this.
+		"""
+		self.qFuncs = qFuncs
 
 def getObsAvoidFuncs(mdp):
-    """
+	"""
 		Return Q functiosn for modular mdp for obstacle avoidance behavior
 
 		the environment is passed by mdp
-    """
+	"""
 	obstacle = {'bias': -0.20931133310480204, 'dis': 0.06742681562641269}
 	sidewalk = {'x': 0.06250000371801567}
 
@@ -40,7 +43,7 @@ def getObsAvoidFuncs(mdp):
 		minDist = mdp.grid.width * mdp.grid.height
 		for xt in range(mdp.grid.width):
 			for yt in range(mdp.grid.height):
-				cell = self.grid[xt][yt] 
+				cell = mdp.grid[xt][yt] 
 				if (type(cell) == int or type(cell) == float) and cell < 0:
 					# it's an obstacle!
 					dist = math.sqrt((xt - next_x) ** 2 + (yt - next_y) ** 2)
