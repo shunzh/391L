@@ -32,21 +32,32 @@ class ModularAgent(ApproximateQAgent):
 			Can toggle between using QValue directly (traditional way)
 			or by proportion of exp(QValue)
 		"""
-		return ApproximateQAgent.getPolicy(self, state)
-		#return self.getGibbsPolicy(state)
+		#return ApproximateQAgent.getPolicy(self, state)
+		return self.getPolicyNormalizeWalk(state)
 	
-	def getGibbsPolicy(self, state):
+	def getPolicyNormalizeWalk(self, state):
 		"""
 			Rather than using QValue, use proportion of exp(QValue)
 		"""
 		actions = self.getLegalActions(state)
 		if actions: 
-			q_value_func = lambda action: self.getQValue(state, action)
-			[math.exp(q_value_func(action)) for action in actions]
-			return random.choice(optActions)
+			# for walk
+			qWalk = lambda action: self.getQValue(state, action, 0)
+			# list of exp^q
+			exps = [math.exp(qWalk(action)) for action in actions]
+			# Normalize
+			sumExps = sum(exps)
+			walkValues = [exp / sumExps for exp in exps]
+
+			# for walk
+			qObstacle = lambda action: self.getQValue(state, action, 0)
+			obstacleValues = [math.exp(qWalk(action)) for action in actions]
+
+			# hybird
+			values = [0.5 * walkValues[i] + 0.5 * obstacleValues[i] for i in range(size(actions))]
+			return actions[values.index(max(values))]
 		else:
 			return None
-
 
 
 def getObsAvoidFuncs(mdp):
