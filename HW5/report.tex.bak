@@ -7,9 +7,6 @@
 \usepackage{listings}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
-\usepackage{hyperref}
-
-\setcounter{section}{-1}
 
 \title{Homework 5: Reinforcement Learning}
 \author{Shun Zhang}
@@ -17,15 +14,6 @@
 
 \begin{document}
 \maketitle
-
-\section{Codebase}
-
-I used the codebase for CS343 Aritificial
-Intelligence\footnote{\url{http://www.cs.utexas.edu/~pstone/Courses/343spring12/}},
-offered by Prof. Peter Stone in Spring 2012. It provides a graphic
-view of the gridworld, which is presented in the figures in this
-report. I also used the Q-Learning function I implemented at that
-time.
 
 \section{Q-Learning}
 
@@ -53,7 +41,7 @@ $$w_i = w_i + \alpha [correction] f_i(s, a)$$
 
 \section{Modular RL}
 
-The task is to combine some sub-MDPs, each of which has some particular
+The task is to combine some sub-MDPs, each of which has some perticular
 behavior, to a hybrid MDP.
 
 \subsection{Linear Combination}
@@ -202,13 +190,14 @@ one. Therefore this solution is correct.
 \begin{subfigure}{\textwidth}
 	\includegraphics[width=\textwidth]{figure/long_2}
 \end{subfigure}
-\caption{Evaluation on 3x25 gridworld. It is one gridworld that broken
-into two figures.}
+\caption{Overweighting one module makes the behavior of that module
+dominate.}
 \label{fig:long}
 \end{figure}
 
 I further tested this Modular MDP using Gibbs Softmax Function in a 3
-x 25 grid world (Figure~\ref{fig:long}). The policy are mostly correct.
+x 25 grid world (Figure~\ref{fig:long}). It is a long graph so I broke
+it into two parts. The policy are mostly correct.
 
 \section{Discussion and Conclusion}
 

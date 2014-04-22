@@ -335,6 +335,30 @@ def getWalkAvoidGrid():
   isFinal = lambda state : state[0] == 6
   return Gridworld(grid, isFinal)
  
+def getLargeWalkAvoidGrid():
+  """
+    Randomly generate a large grid
+  """
+  width = 25
+  height = 3
+  proportion = 1.0/5
+
+  # init grid world
+  grid = [[' ' for i in range(width)] for j in range(height)]
+
+  # add start and end states
+  for j in range(height):
+    grid[j][0] = 'S'
+    grid[j][width - 1] = +1
+
+  # randomly set obstacles
+  for _ in xrange(int(width * height * proportion)):
+    y = random.choice(range(height))
+    x = random.choice(range(1, width - 1))
+    grid[y][x] = -1
+
+  isFinal = lambda state : state[0] == width - 1
+  return Gridworld(grid, isFinal)
 
 def getUserAction(state, actionFunction):
   """
@@ -367,7 +391,7 @@ def runEpisode(agent, environment, discount, decision, display, message, pause, 
   if 'startEpisode' in dir(agent): agent.startEpisode()
   message("BEGINNING EPISODE: "+str(episode)+"\n")
 
-  runs = 50
+  runs = 500
 
   while True:
 
