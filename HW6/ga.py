@@ -104,21 +104,72 @@ class Population:
 		ind.mutate()
 
 
+def evaluate(sortnets, data):
+	"""
+		Evalute the performance of each sortnet on each datum
+		Return fitness for sortnet and data, respectively
+	"""
+	for i in range(len(sortnest)):
+		for j in range(len(data)):
+			thisDatum = data[j].copy()
+			sortnet[i].sort(thisDatum)
+
+			results[(i, j)] = fitness(thisDatum)
+	
+	result_sort = []
+	for i in range(len(sortnest)):
+		result_sort.append(avg([result(i, j) for j in range(len(data))]))
+
+	result_data = []
+	for j in range(len(data)):
+		result_data.append(avg([1 - result(i, j) for i in range(len(sortnest))]))
+
+	return [result_sort, result_data]
+
+
+def fitness(d):
+	"""
+		Return how sorted this data is, range in [0, 1]
+		each i < j and d[i] < d[j] contributes 1 to this degree
+	"""
+	r = range(len(d))
+	possiSum = len(d) * (len(d) - 1) / 2
+	return 1.0 * sum([1 for i in r for j in r if i < j and d[i] <= d[j]]) / possiSum
+
+
+# utility
+def avg(l):
+	return 1.0 * sum(l) / len(l)
+
+
 def main():
 	# length of numbers to sort
 	length = 10
-	# n 
-	elemnum = 30
+	# elements in a sortnet
+	elemsNum = 50
+	# population size 
+	size = 100
+
+	# init population
+	import sortnet, data
+	sort_args = {'length': length, 'elemsNum': elemsNum}
+	sortnets = Population(size, sortnet.SortNet, sort_args)
+
+	data_args = {'length': length}
+	datas = Population(size, data.Data, data_args)
 
 	for _ in xrange(iterations):
-		results = evaluate(sortnets, inputs)
+		result_sort, result_data = evaluate(sortnets, datas)
 
-		sortnets.select(results)
-		inputs.select(results)
+		sortnets.select(results_sort)
+		datas.select(results_data)
 
 		sortnets.crossover()
-		inputs.crossover()
+		datas.crossover()
 
 		sortnets.mutate()
-		inputs.mutate()
+		datas.mutate()
 
+
+if __name__ == '__main__':
+	main()

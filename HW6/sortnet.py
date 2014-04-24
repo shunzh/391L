@@ -5,7 +5,10 @@ class SortNet(ga.Individual):
 	"""
 		Contain multiple sorting elements
 	"""
-	def __init__(self, maxindex, num):
+	def __init__(self, args):
+		maxindex = args['length']
+		num = args['elemsNum']
+
 		self.elems = [SortElem(maxindex) for _ in xrange(num)]
 		self.maxindex = maxindex
 
