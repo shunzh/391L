@@ -5,10 +5,11 @@ class SortNet(ga.Individual):
 	"""
 		Contain multiple sorting elements
 	"""
-	def __init__(self, maxrange, num):
-		self.elems = [SortElem(maxrange) for _ in xrange(num)]
-		self.maxrange = maxrange
-		self.length = num
+	def __init__(self, maxindex, num):
+		self.elems = [SortElem(maxindex) for _ in xrange(num)]
+		self.maxindex = maxindex
+
+		super(SortNet, self).__init__(num)
 		
 	def sort(self, l):
 		"""
@@ -32,7 +33,7 @@ class SortNet(ga.Individual):
 		i = random.randInt(0, self.length)
 		j = random.randInt(0, 2)
 
-		self[i][j] = random.randInt(0, self.maxrange)
+		self[i][j] = random.randInt(0, self.maxindex)
 
 
 class SortElem:
@@ -40,7 +41,7 @@ class SortElem:
 		One sorting element.
 		Contain i and j, which are the indices that might be swapped.
 	"""
-	def __init__(self, maxrange):
+	def __init__(self, maxindex):
 		self.indices = [random.randint(0, maxrang), random.randint(0, maxrang)]
 
 	def __getitem__(self,index):
