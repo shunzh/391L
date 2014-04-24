@@ -1,18 +1,24 @@
 import random
 
-class Data:
+class Data(ga.Individual):
 	"""
 		A sequence of numbers
 	"""
 	def __init__(self, length):
-		self.nums = range(length)
+		self.elems = range(length)
 		random.shuffle(self.nums)
 	
-	@staticmethod
-	def degreeSorted(d):
+	def mutate(self):
 		"""
-			Return how sorted this data is.
-			each i < j and d[i] < d[j] contributes 1 to this degree
+			Randomly swap two numbers
 		"""
-		r = range(len(d))
-		return sum([1 for i in r for j in r if i < j and d[i] < d[j]])
+
+
+def degreeSorted(d):
+	"""
+		Return how sorted this data is.
+		each i < j and d[i] < d[j] contributes 1 to this degree
+	"""
+	r = range(len(d))
+	return sum([1 for i in r for j in r if i < j and d[i] < d[j]])
+
