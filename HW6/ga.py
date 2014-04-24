@@ -1,6 +1,7 @@
 import copy
+import random
 
-class Individual:
+class Individual(object):
 	"""
 		Each individual is a list.
 	"""
@@ -9,6 +10,9 @@ class Individual:
 
 	def __getitem__(self,index):
 		return self.elems[index]
+
+	def __setitem__(self, index, value):
+		self.elems[index] = value
 
 	def __len__(self):
 		return self.length
@@ -27,13 +31,22 @@ class Population:
 	CO_RATE = 0.5
 	MU_RATE = 0.001
 
-	def __init__(self, num, cate):
+	def __init__(self, num, cate, args):
 		"""
 			num: number of individuals
 			cate: class of individuals
 		"""
-		self.inds = [cate() for _ in xrange(num)]
+		self.inds = [cate(args) for _ in xrange(num)]
 		self.num = num
+
+	def __getitem__(self, index):
+		return self.inds[index]
+
+	def __setitem__(self, index, value):
+		self.inds[index] = value
+
+	def __len__(self):
+		return self.num
 
 	def select(self, fitness):
 		"""
@@ -48,7 +61,8 @@ class Population:
 			fitness = [fit / fit_sum for fit in fitness]
 
 		# cumulative prob func
-		cum_fitness = [fitness[0]]
+		cum_fitness = [0 for _ in xrange(self.num)]
+		cum_fitness[0] = fitness[0]
 		for i in range(1, self.num):
 			cum_fitness[i] = cum_fitness[i - 1] + fitness[i]
 
@@ -63,7 +77,7 @@ class Population:
 				else:
 					break
 
-			new_ind.append(self.inds[j].copy())
+			new_inds.append(self.inds[j].copy())
 
 		# replace the current individuals
 		self.inds = new_inds
@@ -72,19 +86,19 @@ class Population:
 		"""
 			Exchange CO_RATE of their elements.
 		"""
-		num = int(self.num * CO_RATE)
+		num = int(self.num * Population.CO_RATE)
 		for _ in xrange(num):
-			i = random.randInt(0, self.num)
-			j = random.randInt(0, self.num)
-			self.crossoverInd(self.ind[i], self.ind[j])
+			i = random.randint(0, self.num-1)
+			j = random.randint(0, self.num-1)
+			self.crossoverInd(self.inds[i], self.inds[j])
 		
 	def mutate(self):
 		"""
 			Randomly change one element with prob of MU_RATE.
 		"""
-		for i in xrange(self.length):
+		for i in xrange(self.num):
 			if random.random() < Population.MU_RATE:
-				self.mutate(self.ind[i])
+				self.mutateInd(self.inds[i])
 
 	def crossoverInd(self, ind1, ind2):
 		# Their lengths should be equal. Just make sure.
@@ -92,7 +106,7 @@ class Population:
 		co_num = int(num / 2)
 
 		for _ in xrange(num):
-			idx = random.randInt(0, num)
+			idx = random.randint(0, num-1)
 
 			# swap them
 			ind1[idx], ind2[idx] = ind2[idx], ind1[idx]
@@ -104,25 +118,27 @@ class Population:
 		ind.mutate()
 
 
-def evaluate(sortnets, data):
+def evaluate(sortnets, datas):
 	"""
 		Evalute the performance of each sortnet on each datum
 		Return fitness for sortnet and data, respectively
 	"""
-	for i in range(len(sortnest)):
-		for j in range(len(data)):
-			thisDatum = data[j].copy()
-			sortnet[i].sort(thisDatum)
+	results = {}
 
-			results[(i, j)] = fitness(thisDatum)
+	for i in range(len(sortnets)):
+		for j in range(len(datas)):
+			datum = datas[j].copy()
+			sortnets[i].sort(datum)
+
+			results[(i, j)] = fitness(datum)
 	
 	result_sort = []
-	for i in range(len(sortnest)):
-		result_sort.append(avg([result(i, j) for j in range(len(data))]))
+	for i in range(len(sortnets)):
+		result_sort.append(avg([results[(i, j)] for j in range(len(datas))]))
 
 	result_data = []
-	for j in range(len(data)):
-		result_data.append(avg([1 - result(i, j) for i in range(len(sortnest))]))
+	for j in range(len(datas)):
+		result_data.append(avg([1 - results[(i, j)] for i in range(len(sortnets))]))
 
 	return [result_sort, result_data]
 
@@ -150,6 +166,9 @@ def main():
 	# population size 
 	size = 100
 
+	# number of iterations for GA
+	iterations = 10
+
 	# init population
 	import sortnet, data
 	sort_args = {'length': length, 'elemsNum': elemsNum}
@@ -161,8 +180,8 @@ def main():
 	for _ in xrange(iterations):
 		result_sort, result_data = evaluate(sortnets, datas)
 
-		sortnets.select(results_sort)
-		datas.select(results_data)
+		sortnets.select(result_sort)
+		datas.select(result_data)
 
 		sortnets.crossover()
 		datas.crossover()

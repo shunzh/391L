@@ -9,13 +9,13 @@ class Data(ga.Individual):
 		self.length = args['length']
 
 		self.elems = range(self.length)
-		random.shuffle(self.nums)
+		random.shuffle(self.elems)
 	
 	def mutate(self):
 		"""
 			Randomly swap two numbers
 		"""
-		i = random.randInt(0, self.length)
-		j = random.randInt(0, self.length)
+		i = random.randint(0, self.length-1)
+		j = random.randint(0, self.length-1)
 
 		self[i], self[j] = self[j], self[i]

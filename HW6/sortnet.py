@@ -33,10 +33,10 @@ class SortNet(ga.Individual):
 			the i-th element
 			j \in [0, 1], which is the first or second index
 		"""
-		i = random.randInt(0, self.length)
-		j = random.randInt(0, 2)
+		i = random.randint(0, self.length-1)
+		j = random.randint(0, 1)
 
-		self[i][j] = random.randInt(0, self.maxindex)
+		self[i][j] = random.randint(0, self.maxindex-1)
 
 
 class SortElem:
@@ -45,7 +45,10 @@ class SortElem:
 		Contain i and j, which are the indices that might be swapped.
 	"""
 	def __init__(self, maxindex):
-		self.indices = [random.randint(0, maxrang), random.randint(0, maxrang)]
+		self.indices = [random.randint(0, maxindex-1), random.randint(0, maxindex-1)]
 
-	def __getitem__(self,index):
+	def __getitem__(self, index):
 		return self.indices[index]
+
+	def __setitem__(self, index, value):
+		self.indices[index] = value
