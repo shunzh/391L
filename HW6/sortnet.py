@@ -1,4 +1,3 @@
-import util
 import random
 
 class SortNet:
@@ -9,7 +8,7 @@ class SortNet:
 	MU_RATE = 0.001
 
 	def __init__(self, maxrange, num):
-		self.elems = [SortElem(maxrange) for i in xrange(num)]
+		self.elems = [SortElem(maxrange) for _ in xrange(num)]
 		self.maxrange = maxrange
 		self.length = num
 		
@@ -59,6 +58,7 @@ class SortNet:
 					# the i-th element
 					# j \in [0, 1], which is the first or second index
 					self[i][j] = random.randInt(0, self.maxrange)
+
 
 class SortElem:
 	"""
