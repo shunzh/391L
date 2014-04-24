@@ -5,9 +5,6 @@ class SortNet(ga.Individual):
 	"""
 		Contain multiple sorting elements
 	"""
-	CO_RATE = 0.5
-	MU_RATE = 0.001
-
 	def __init__(self, maxrange, num):
 		self.elems = [SortElem(maxrange) for _ in xrange(num)]
 		self.maxrange = maxrange
