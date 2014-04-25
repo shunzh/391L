@@ -28,7 +28,7 @@ class Population:
 	"""
 		Population contains multiple of individuals
 	"""
-	CO_RATE = 0.5
+	CO_RATE = 0.2
 	MU_RATE = 0.001
 
 	def __init__(self, num, cate, args):
@@ -58,6 +58,9 @@ class Population:
 		# normalize first if necessary
 		if sum(fitness) != 1:
 			fit_sum = sum(fitness)
+
+			assert fit_sum != 0
+
 			fitness = [fit / fit_sum for fit in fitness]
 
 		# cumulative prob func
@@ -100,12 +103,16 @@ class Population:
 			if random.random() < Population.MU_RATE:
 				self.mutateInd(self.inds[i])
 
+	"""
+		Operation on individuals
+	"""
 	def crossoverInd(self, ind1, ind2):
 		# Their lengths should be equal. Just make sure.
 		num = min(len(ind1), len(ind2))
 		co_num = int(num / 2)
 
-		for _ in xrange(num):
+		# exchange half of the elements
+		for _ in xrange(co_num):
 			idx = random.randint(0, num-1)
 
 			# swap them
@@ -162,12 +169,12 @@ def main():
 	# length of numbers to sort
 	length = 10
 	# elements in a sortnet
-	elemsNum = 50
+	elemsNum = 100
 	# population size 
 	size = 100
 
 	# number of iterations for GA
-	iterations = 10
+	iterations = 100
 
 	# init population
 	import sortnet, data
@@ -179,6 +186,7 @@ def main():
 
 	for _ in xrange(iterations):
 		result_sort, result_data = evaluate(sortnets, datas)
+		print avg(result_sort), avg(result_data)
 
 		sortnets.select(result_sort)
 		datas.select(result_data)
