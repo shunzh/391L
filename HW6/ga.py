@@ -29,7 +29,7 @@ class Population:
 	"""
 		Population contains multiple of individuals
 	"""
-	CO_RATE = 0.2
+	CO_RATE = 0.4
 	MU_RATE = 0.01
 
 	def __init__(self, num, cate, args):
@@ -206,7 +206,7 @@ def main():
 	#elemsNum = lambda : length ** 2
 
 	# number of iterations for GA
-	iterations = 200
+	iterations = 100
 
 	# init population
 	import sortnet, data
