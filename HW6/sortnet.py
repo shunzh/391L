@@ -6,14 +6,18 @@ class SortNet(ga.Individual):
 		Contain multiple sorting elements
 	"""
 	def __init__(self, args):
-		maxindex = args['length']
+		"""
+			maxindex is the largest index in data
+			elemsNum is a FUNCTION that returns the number of elems in this
+			network. call once.
+		"""
+		self.maxindex = args['length']
+
 		num = args['elemsNum']
+		self.length = num()
 
-		self.elems = [SortElem(maxindex) for _ in xrange(num)]
-		self.maxindex = maxindex
+		self.elems = [SortElem(self.maxindex) for _ in xrange(self.length)]
 
-		super(SortNet, self).__init__(num)
-		
 	def sort(self, l):
 		"""
 			Sort l using this sortnet
@@ -33,10 +37,25 @@ class SortNet(ga.Individual):
 			the i-th element
 			j \in [0, 1], which is the first or second index
 		"""
-		i = random.randint(0, self.length-1)
-		j = random.randint(0, 1)
+		def randomChange():
+			# change one number in sortnet randomly
+			i = random.randint(0, self.length-1)
+			j = random.randint(0, 1)
 
-		self[i][j] = random.randint(0, self.maxindex-1)
+			self[i][j] = random.randint(0, self.maxindex-1)
+
+		def randomAppend():
+			# add three random pairs to sortnet
+			self.length += 3
+
+			for _ in xrange(3):
+				self.elems.append(SortElem(self.maxindex))
+
+		if random.random() < 0.5:
+			randomChange()
+		else:
+			pass
+			#randomAppend()
 
 
 class SortElem:

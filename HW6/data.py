@@ -8,8 +8,7 @@ class Data(ga.Individual):
 	def __init__(self, args):
 		self.length = args['length']
 
-		self.elems = range(self.length)
-		random.shuffle(self.elems)
+		self.elems = [random.randint(0, 10000) for _ in xrange(self.length)]
 	
 	def mutate(self):
 		"""
