@@ -18,6 +18,9 @@ class SortNet(ga.Individual):
 
 		self.elems = [SortElem(self.maxindex) for _ in xrange(self.length)]
 
+	def display(self):
+		return [elem.indices for elem in self.elems]
+
 	def sort(self, l):
 		"""
 			Sort l using this sortnet

@@ -151,16 +151,23 @@ def evaluate(sortnets, datas):
 
 		for i in range(len(sortnets)):
 			a = avg([results[(i, j)] for j in range(len(datas))])
-			l = - math.log(len(sortnets[i])) / 10
+			l = len(sortnets[i])
 
 			# compromise between accuracy and length
-			result_sort.append(a + l)
+			result_sort.append(a - 0.02 * l)
 
 			# stats
 			alist.append(a)
 			llist.append(len(sortnets[i]))
 
-		print avg(alist), avg(llist),
+		# for print
+		opt_a = max(alist)
+		ind_opt = alist.index(opt_a)
+		opt_l = llist[ind_opt]
+		sort = sortnets[ind_opt]
+
+		print opt_a, opt_l
+		print sort.display()
 
 		return result_sort
 
@@ -211,8 +218,6 @@ def main():
 
 	for _ in xrange(iterations):
 		result_sort, result_data = evaluate(sortnets, datas)
-
-		print avg(result_data)
 
 		sortnets.select(result_sort, exp=True)
 		datas.select(result_data)
