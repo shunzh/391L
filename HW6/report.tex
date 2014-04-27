@@ -21,19 +21,32 @@
 For sorting network,
 
 \begin{itemize}
-\item Fitness:
-$$Inversion(d) = I(i < j \land d[i] > d[j])$$
-where I is an indicator function, which counts the number satisfied
-pairs of $i, j$.
-\item Selection:
-\item Crossover:
-\item Mutation:
+\item Fitness: First I used the proportion of consistent pairs.
+Consistent paris are different $i, j$ such that $(i < j \land d[i]
+\leq d[j])$, where $d$ is an input datum. The fitness is the average
+of the proportion of consistent pairs on all the input data. 
+
+\item Selection: An individual $i$ is chosen with the probability of
+$e^{fitness(i)}$. This makes the selection more biased towards larger
+fitness individuals.
+
+\item Crossover: Two individuals (list of sorting pairs) both cut into
+two parts in the middle, and exchange their first halves. For example,
+(1, 2), (2, 3) and (3, 1), (2, 1) are crossed over to be (3, 1), (2,
+3) and (1, 2), (2, 1).
+
+\item Mutation: Two types of mutation, with equal probability. First,
+randomly change a number in one sorting pair. For example, (1, 5)
+changes to (6, 5). Second, three randomly generated sorting pairs are
+appended to a randomly chosen individual. For example, (1, 5), (2, 4)
+is changed to be (1, 5), (2, 4), (1, 3), (2, 3), (3, 4).
 \end{itemize}
 
-For data to be sorted,
+For input data,
 
 \begin{itemize}
-\item Fitness:
+\item Fitness: This is the inverse of fitness of sorting networks.
+Namely, it measures how difficult the data can be sorted.
 \item Selection:
 \item Crossover:
 \item Mutation:
