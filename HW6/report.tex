@@ -46,19 +46,32 @@ For input data,
 
 \begin{itemize}
 \item Fitness: This is the inverse of fitness of sorting networks.
-Namely, it measures how difficult the data can be sorted.
-\item Selection:
-\item Crossover:
-\item Mutation:
+Concretely, it is the average of inconsistent pairs after sorting by
+each sorting network. Namely, it measures how difficult the data can
+be sorted.
+
+\item Selection: An individual is chosen with the probability of its
+fitness.
+
+\item Crossover: Two individuals (list of numbers) both cut into two
+parts in the middle, and exchange their first halves. This is same as
+crossover for sorting network.
+
+\item Mutation: One number in a random individual is changed to
+another number. For example, 1, 4, 5, 9, 2 is changed to 1, 8, 5, 9,
+2.
 \end{itemize}
 
 \section{Experiments}
 
 \section{Discussion and Conclusion}
 
-In my view, modular RL is one type of transfer learning. It apply the
-results in some predefined source tasks to the target task. Also, some
-learning could be allowed after combining the source tasks, rather
-than our hand-tuning.
+Sorting in general need $O(n\log(n))$ pairwise comparisons. So
+$O(n\log(n))$ is also the lower bound for the number of the pairs in
+a sorting network. For the fitness of the sorting network, both
+performance on data and its length need to be considered. So it is
+hard to achieve the best performance on data, also minimize the
+sorting network. However, this goal should be closer when more
+iterations are run.
 
 \end{document}
