@@ -202,8 +202,8 @@ def main():
 	# length of numbers to sort
 	length = 16
 	# elements in a sortnet
-	#elemsNum = lambda : random.randint(length * (length / 2), length ** 2)
-	elemsNum = lambda : length ** 2
+	elemsNum = lambda : random.randint(length * (length / 2), length ** 2)
+	#elemsNum = lambda : length ** 2
 
 	# number of iterations for GA
 	iterations = 200
@@ -214,7 +214,7 @@ def main():
 	sortnets = Population(500, sortnet.SortNet, sort_args)
 
 	data_args = {'length': length}
-	datas = Population(500, data.Data, data_args)
+	datas = Population(200, data.Data, data_args)
 
 	for _ in xrange(iterations):
 		result_sort, result_data = evaluate(sortnets, datas)
