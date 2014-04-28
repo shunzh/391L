@@ -1,0 +1,11 @@
+2
+length = 8
+population: 200, 100
+rates: 0.4 0.01
+
+3
+length = 16
+population: 500, 100
+
+4
+population: 500, 500

@@ -83,7 +83,7 @@ class Population:
 
 			new_inds.append(self.inds[j].copy())
 
-		# replace the current individuals
+		# replace the current generation
 		self.inds = new_inds
 	
 	def crossover(self):
@@ -154,7 +154,7 @@ def evaluate(sortnets, datas):
 			l = len(sortnets[i])
 
 			# compromise between accuracy and length
-			result_sort.append(a - 0.02 * l)
+			result_sort.append(a + 1.0/l)
 
 			# stats
 			alist.append(a)
@@ -200,26 +200,26 @@ def avg(l):
 
 def main():
 	# length of numbers to sort
-	length = 8
+	length = 16
 	# elements in a sortnet
-	elemsNum = lambda : random.randint(3 * length, length ** 2)
-	#elemsNum = lambda : length ** 2
+	#elemsNum = lambda : random.randint(length * (length / 2), length ** 2)
+	elemsNum = lambda : length ** 2
 
 	# number of iterations for GA
-	iterations = 100
+	iterations = 200
 
 	# init population
 	import sortnet, data
 	sort_args = {'length': length, 'elemsNum': elemsNum}
-	sortnets = Population(200, sortnet.SortNet, sort_args)
+	sortnets = Population(500, sortnet.SortNet, sort_args)
 
 	data_args = {'length': length}
-	datas = Population(100, data.Data, data_args)
+	datas = Population(500, data.Data, data_args)
 
 	for _ in xrange(iterations):
 		result_sort, result_data = evaluate(sortnets, datas)
 
-		sortnets.select(result_sort, exp=True)
+		sortnets.select(result_sort)
 		datas.select(result_data)
 
 		sortnets.crossover()

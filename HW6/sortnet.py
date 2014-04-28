@@ -57,8 +57,7 @@ class SortNet(ga.Individual):
 		if random.random() < 0.5:
 			randomChange()
 		else:
-			pass
-			#randomAppend()
+			randomAppend()
 
 
 class SortElem:

@@ -18,28 +18,47 @@
 
 \section{Genetic Algorithm for Sorting Networks}
 
-For sorting network,
+One iteration of genetic algorithm is run for both sorting network and
+the input data at each step. For sorting network,
 
 \begin{itemize}
-\item Fitness: First I used the proportion of consistent pairs.
+
+\item First generation:
+
+\item Fitness: The fitness is the linear combination of the following
+factors,
+
+\begin{itemize}
+\item The proportion of consistent pairs.
 Consistent paris are different $i, j$ such that $(i < j \land d[i]
 \leq d[j])$, where $d$ is an input datum. The fitness is the average
 of the proportion of consistent pairs on all the input data. 
 
-\item Selection: An individual $i$ is chosen with the probability of
-$e^{fitness(i)}$. This makes the selection more biased towards larger
-fitness individuals.
+\item The inverse of the lengths, namely $\frac{1}{Length}$. The
+longer the length is, the less fitness it has.
+\end{itemize}
+
+\item Selection: An individual is chosen with the probability of its
+fitness.
 
 \item Crossover: Two individuals (list of sorting pairs) both cut into
 two parts in the middle, and exchange their first halves. For example,
 (1, 2), (2, 3) and (3, 1), (2, 1) are crossed over to be (3, 1), (2,
 3) and (1, 2), (2, 1).
 
-\item Mutation: Two types of mutation, with equal probability. First,
-randomly change a number in one sorting pair. For example, (1, 5)
-changes to (6, 5). Second, three randomly generated sorting pairs are
+\item Mutation: Two types of mutation, with equal probability.
+
+\begin{itemize}
+
+\item First generation:
+
+\item Randomly change a number in a sorting pair. For example, (1, 5)
+changes to (6, 5).
+
+\item Three randomly generated sorting pairs are
 appended to a randomly chosen individual. For example, (1, 5), (2, 4)
 is changed to be (1, 5), (2, 4), (1, 3), (2, 3), (3, 4).
+\end{itemize}
 \end{itemize}
 
 For input data,
@@ -47,7 +66,7 @@ For input data,
 \begin{itemize}
 \item Fitness: This is the inverse of fitness of sorting networks.
 Concretely, it is the average of inconsistent pairs after sorting by
-each sorting network. Namely, it measures how difficult the data can
+each sorting network. It measures how difficult the data can
 be sorted.
 
 \item Selection: An individual is chosen with the probability of its
