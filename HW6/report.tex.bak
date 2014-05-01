@@ -30,7 +30,7 @@ factors,
 
 \begin{itemize}
 \item The proportion of consistent pairs.
-Consistent pairs are different $i, j$ such that $(i < j \land d[i]
+Consistent paris are different $i, j$ such that $(i < j \land d[i]
 \leq d[j])$, where $d$ is an input datum. The fitness is the average
 of the proportion of consistent pairs on all the input data. 
 
@@ -157,7 +157,7 @@ also do a breakthrough by a good crossover or by mutation.
 
 \section{Appendix: Trained Sorting Networks}
 
-For Experiment 2,
+For Examperiment 2,
 
 \begin{verbatim}
 [[1, 7], [6, 3], [5, 6], [2, 7], [5, 2], [0, 7], [4, 3], [5, 4], [1,
